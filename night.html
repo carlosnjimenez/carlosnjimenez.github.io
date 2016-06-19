@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet Quick Start Guide Example</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+	<style>
+		body {padding: 0;margin: 0;}
+		html, body, #mapa {height: 100%;}
+	</style>
+</head>
+<body>
+	<div id="mapa" style="width: 100%; height: 100%"></div>
+	<div style="position: absolute; left: 24px; bottom: 24px;"><a href="https://www.facebook.com/simiungs/"><img src="images/logoNight.png" alt="SiMiUNGS"></a></div>
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	<script>
+		var mymap = L.map('mapa', {center: [-34.52666, -58.70068],zoom:18, zoomControl: false,dragging: false,});
+		mymap.fitBounds([[-34.53272, -58.70783],[-34.52044, -58.6936]]);
+		L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {maxZoom:mymap.getZoom(),minZoom:mymap.getZoom()}).addTo(mymap);
+		mymap.attributionControl.setPrefix('&copy; 2016 <a href="http://www.ungs.edu.ar/labsig/" target="_blank">LabSIG ICO UNGS</a>');
+	</script>
+</body>
+</html>
