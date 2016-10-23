@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
+    <title>CIOTTIG-Mapa2</title>
+    <script src='leaflet.js'></script>
+    <script src="leaflet-side-by-side.js"></script>
+    <link href='leaflet.css' rel='stylesheet' />
+    <style>
+    body 
+	{
+        margin: 0;
+        padding: 0;
+    }
+    #map 
+	{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <div id='map'></div>
+    <script>
+    var map = L.map
+	(
+		'map', 
+		{
+			zoom : 12,
+			center : [-34.58444,-58.62796],
+			maxZoom : 15,
+			minZoom : 12,
+			inertia : false,
+		}
+	);
+
+    var OSM = L.tileLayer
+	(
+		'http://{s}.tile.osm.org/{z}/{x}/{y}.png', 
+		{
+			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap<\/a> contributors'
+		}
+	).addTo(map);
+		
+	var CDM = L.tileLayer
+	(
+		'TilesCMx/{z}/{x}/{y}.png', 
+		{
+			tms: true
+		}
+	).addTo(map);
+	
+    L.control.sideBySide
+	(
+		OSM, 
+		CDM
+	).addTo(map);
+	
+    </script>
+</body>
+</html>
