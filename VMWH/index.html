@@ -42,13 +42,13 @@ map.fitBounds(bounds);
 
 var OSM = L.tileLayer
 (
-	'http://{s}.tile.osm.org/{z}/{x}/{y}.png', 
+	'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', 
 	{
 		maxZoom: 15,
 		attribution: '&copy; 2016 <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}
 ).addTo(map);
-
+/*
 var GS = L.tileLayer
 (
 	'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', 
@@ -57,7 +57,7 @@ var GS = L.tileLayer
         maxZoom: 15  
 	}
 ).addTo(map);
-
+*/
 var campoDeMayo = L.tileLayer
 (
 	'TilesCMx/{z}/{x}/{y}.png', 
@@ -66,13 +66,13 @@ var campoDeMayo = L.tileLayer
 		attribution: '<a href="http://www.ungs.edu.ar">UNGS</a> , <a href="http://www.ign.gob.ar">IGN</a>',
 	}
 ).addTo(map);
-	
+/*	
 L.control.sideBySide
 (
 	OSM, 
 	GS
 ).addTo(map);
-	
+	*/
 var opacitySlider = new L.Control.opacitySlider();
 map.addControl(opacitySlider);
 opacitySlider.setOpacityLayer(campoDeMayo);   
