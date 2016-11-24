@@ -79,14 +79,15 @@ var campoDeMayo = L.tileLayer
 	
 L.control.sideBySide
 (
-	OSM, 
-	campoDeMayo
+
+	campoDeMayo,
+	OSM
 ).addTo(map);
 	
-/*var opacitySlider = new L.Control.opacitySlider();
+var opacitySlider = new L.Control.opacitySlider();
 map.addControl(opacitySlider);
 opacitySlider.setOpacityLayer(campoDeMayo);   
-campoDeMayo.setOpacity(0.5);*/
+
 	</script>
 </body>
 </html>
