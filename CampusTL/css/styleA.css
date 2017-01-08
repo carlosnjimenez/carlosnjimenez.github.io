@@ -273,12 +273,41 @@ p.ungs-demos a.current-demo:hover{
 }
 /* Media Queries */
 @media screen and (max-width: 767px) {
-	.container > header{
+	.container > header
+	{
 		text-align: center;
 	}
-	p.ungs-demos {
-		position: relative;
-		top: auto;
-		left: auto;
+	.ungs-top
+	{
+	font-family: 'DINl',Arial, sans-serif;
+	line-height: 24px;
+	font-size: 11px;
+	width: 100%;
+	background: #007e9f;
+	opacity: 1;
+	text-transform: uppercase;
+	z-index: 9999;
+	position: relative;
+	padding: 0px 0px 0px 0px;
+	margin: 40px 0px 0px 0px;
 	}
+	.ungs-top a
+	{
+	letter-spacing: 0px;
+	color: #ffffff;
+	text-align: center;
+	display: block;
+	float: none;
+	}
+	.tatoo{
+		
+		display: none;
+	}
+	.container > header h2, p.info{
+	font-size: 10px;
+	position: relative;
+	color: #f8f8f8;
+	padding: 0px 0px 0px 0px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
 }
