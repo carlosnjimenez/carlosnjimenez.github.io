@@ -20,41 +20,28 @@
 
 
   <script>
-var tex = 0;
-  function deviceOrientationListener(event) {
-     /*var c=document.getElementById("myCanvas");
-     var ctx=c.getContext("2d");
-     ctx.clearRect(0,0, c.width, c.height);
-     ctx.fillStyle="#FF7777";
-     ctx.font="14px Verdana";
-     ctx.fillText("Alpha:" + Math.round(event.alpha) ,10,20);
-     ctx.beginPath();
-     ctx.moveTo(180, 75);
-     ctx.lineTo(210, 75);
-     ctx.arc(180,75,60,0, event.alpha*Math.PI/180);
-     ctx.fill();
+  
+  
+  
+  
+  
+var g = 0;
+  window.addEventListener('deviceorientation', function(event) 
+  {
 
-     ctx.fillStyle="#FF6600";
-     ctx.fillText("Beta:" + Math.round(event.beta),10,140);
-     ctx.beginPath();
-     ctx.fillRect(180, 150, event.beta, 90);
-
-     ctx.fillStyle="#FF0000";
-     ctx.fillText("Gamma:" + Math.round(event.gamma),10,270);
-     ctx.beginPath();
-     ctx.fillRect(90, 340, 180, event.gamma);*/
-	  tex = Math.round(event.gamma),10,270;
-	 
-	 
-}
-var map1 = new mapboxgl.Map({
+	var a = event.alpha;
+	var b = event.beta;
+	g = event.gamma;
+}, false);
+var notification = new Notification(g);
+      var map1 = new mapboxgl.Map({
         container: 'map',
         style: 'style-cdn.json',
         attributionControl: false,
 		center: [-58.70060,-34.52989],
-		zoom: 16,
-		pitch: 90,
-		bearing: tex,
+		    zoom: 16,
+    pitch: 90,
+    bearing: g,
         hash: true
       });
 	  var map2 = new mapboxgl.Map({
@@ -67,24 +54,14 @@ var map1 = new mapboxgl.Map({
     bearing: 0,
         hash: true
       });
-  var map = new mapboxgl.Compare(map1,map2, {});
-  
-  /*
-
-  window.addEventListener('deviceorientation', function(event) 
-  {
-
-	var a = event.alpha;
-	var b = event.beta;
-	g = event.gamma;
-}, false);*/
-
-     
 
 
 //var mapA = new mapboxgl.Map(..);
 //var mapB = new mapboxgl.Map(..);
-
+var map = new mapboxgl.Compare(map1,map2, {
+    // Set this to enable comparing two maps by mouse movement:
+    // mousemove: true
+});
 
 if (window.DeviceOrientationEvent) {
    window.addEventListener("deviceorientation", deviceOrientationListener);
