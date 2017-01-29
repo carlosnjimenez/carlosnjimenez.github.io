@@ -63,12 +63,6 @@ var map = new mapboxgl.Compare(map1,map2, {
     // mousemove: true
 });
 
-if (window.DeviceOrientationEvent) {
-   window.addEventListener("deviceorientation", deviceOrientationListener);
-}
-else {
-    alert("Sorry, your browser doesn't support Device Orientation");
-}
 
       //map.addControl(new mapboxgl.NavigationControl());
   </script>
