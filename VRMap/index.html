@@ -25,13 +25,13 @@
   
   
   
-var g = 0;
+
   window.addEventListener('deviceorientation', function(event) 
   {
 
 	var a = event.alpha;
 	var b = event.beta;
-	g = event.gamma;
+	var g = event.gamma;
 }, false);
 var notification = new Notification(g);
       var map1 = new mapboxgl.Map({
@@ -41,7 +41,7 @@ var notification = new Notification(g);
 		center: [-58.70060,-34.52989],
 		    zoom: 16,
     pitch: 90,
-    bearing: g,
+    bearing: 0,
         hash: true
       });
 	  var map2 = new mapboxgl.Map({
@@ -66,6 +66,6 @@ var map = new mapboxgl.Compare(map1,map2, {
 
       //map.addControl(new mapboxgl.NavigationControl());
   </script>
-  <p>
+
 </body>
 </html>
