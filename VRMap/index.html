@@ -20,20 +20,8 @@
 
 
   <script>
-  
-  
-  
-  
-  
 
-  window.addEventListener('deviceorientation', function(event) 
-  {
-
-	var a = event.alpha;
-	var b = event.beta;
-	var g = event.gamma;
-}, false);
-var notification = new Notification(g);
+  
       var map1 = new mapboxgl.Map({
         container: 'map',
         style: 'style-cdn.json',
@@ -63,9 +51,7 @@ var map = new mapboxgl.Compare(map1,map2, {
     // mousemove: true
 });
 
-
       //map.addControl(new mapboxgl.NavigationControl());
   </script>
-
 </body>
 </html>
