@@ -20,8 +20,15 @@
 
 
   <script>
+var g = 0;
+  window.addEventListener('deviceorientation', function(event) 
+  {
 
-  
+	var a = event.alpha;
+	var b = event.beta;
+	g = event.gamma;
+}, false);
+
       var map1 = new mapboxgl.Map({
         container: 'map',
         style: 'style-cdn.json',
@@ -29,7 +36,7 @@
 		center: [-58.70060,-34.52989],
 		    zoom: 16,
     pitch: 90,
-    bearing: 0,
+    bearing: g,
         hash: true
       });
 	  var map2 = new mapboxgl.Map({
