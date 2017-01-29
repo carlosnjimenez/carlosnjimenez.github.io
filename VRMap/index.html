@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GL Style Package Preview</title>
+  <link rel="stylesheet" type="text/css" href="https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js"></script>
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:50%; float: left;}
+	#map2 {  position:absolute;top:0; bottom:0; width:100%;float: right; }
+  </style>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
+
+</head>
+<body>
+  <div id='map2'></div>
+  <div id='map'></div>
+
+
+  <script>
+
+  
+      var map1 = new mapboxgl.Map({
+        container: 'map',
+        style: 'style-cdn.json',
+        attributionControl: false,
+		center: [-58.70060,-34.52989],
+		    zoom: 16,
+    pitch: 90,
+    bearing: 0,
+        hash: true
+      });
+	  var map2 = new mapboxgl.Map({
+        container: 'map2',
+        style: 'style-cdn.json',
+        attributionControl: false,
+		center: [-34.52989,-58.70060],
+		    zoom: 15,
+    pitch: 0,
+    bearing: 0,
+        hash: true
+      });
+
+
+//var mapA = new mapboxgl.Map(..);
+//var mapB = new mapboxgl.Map(..);
+var map = new mapboxgl.Compare(map1,map2, {
+    // Set this to enable comparing two maps by mouse movement:
+    // mousemove: true
+});
+
+      //map.addControl(new mapboxgl.NavigationControl());
+  </script>
+</body>
+</html>
