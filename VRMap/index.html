@@ -43,7 +43,7 @@ var tex = 0;
      ctx.fillText("Gamma:" + Math.round(event.gamma),10,270);
      ctx.beginPath();
      ctx.fillRect(90, 340, 180, event.gamma);*/
-	  tex = event.gamma;
+	  tex = Math.round(event.gamma),10,270;
 	 
 	 
 }
