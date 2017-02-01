@@ -8,7 +8,7 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js"></script>
   <style>
     body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:50%; float: left;}
+    #map1 { position:absolute; top:0; bottom:0; width:50%; float: left;}
 	#map2 {  position:absolute;top:0; bottom:0; width:100%;float: right; }
   </style>
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
@@ -16,40 +16,40 @@
 </head>
 <body>
   <div id='map2'></div>
-  <div id='map'></div>
+  <div id='map1'></div>
 
 
   <script>
 
-  
+  mapboxgl.accessToken = 'pk.eyJ1IjoiY2FybG9zbmVsc29uamltZW5leiIsImEiOiJjaW01cXpoczAwMW9rdHNtNHJpdGh2dW5xIn0.Wtai_XNTzTf8NcQmKbKNQw';
       var map1 = new mapboxgl.Map({
-        container: 'map',
-        style: 'style-cdn.json',
+        container: 'map1',
+        style: 'mapbox://styles/mapbox/streets-v9',
         attributionControl: false,
 		center: [-58.70060,-34.52989],
-		    zoom: 16,
-    pitch: 90,
-    bearing: 0,
-        hash: true
+		zoom: 10,
+		pitch: 90,
+		bearing: 0,
+        hash: false
       });
 	  var map2 = new mapboxgl.Map({
         container: 'map2',
-        style: 'style-cdn.json',
+        style: 'mapbox://styles/mapbox/streets-v9',
         attributionControl: false,
-		center: [-34.52989,-58.70060],
-		    zoom: 15,
-    pitch: 0,
-    bearing: 0,
-        hash: true
+		center: [-58.70060,-34.52989],
+		zoom: 10,
+		pitch: 90,
+		bearing: -5,
+        hash: false
       });
 
 
 //var mapA = new mapboxgl.Map(..);
 //var mapB = new mapboxgl.Map(..);
-var map = new mapboxgl.Compare(map1,map2, {
+//var map = new mapboxgl.Compare(map1,map2, {
     // Set this to enable comparing two maps by mouse movement:
     // mousemove: true
-});
+//});
 
       //map.addControl(new mapboxgl.NavigationControl());
   </script>
