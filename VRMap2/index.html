@@ -22,10 +22,35 @@ width:50%;
 height: 100%;
 float: right;
 }
+
+XX{
+z-index:9999;
+}
     </style>
   </head>
   <body>
+  <script>
+  function launchFullScreen(element) 
+  {
+	if(element.requestFullScreen) 
+	{
+		element.requestFullScreen();
+	} 
+	else if(element.mozRequestFullScreen) 
+	{
+		element.mozRequestFullScreen();
+	} 
+	else if(element.webkitRequestFullScreen) 
+	{
+		element.webkitRequestFullScreen();
+	}
+} // la pagina entera
+  </script>
+  <DIV id="XX">
+  <input type="button" value="Modo Pantalla completa" onclick="launchFullScreen(document.documentElement);"/>
+  </div>
 <object id="IZQ" type="text/html" data="https://openmaptiles.github.io/klokantech-3d-gl-style/#16.14/-34.52989/-58.70060/0/59"> </object>
 <object id="DER" type="text/html" data="https://openmaptiles.github.io/klokantech-3d-gl-style/#16.14/-34.52989/-58.70060/5/59"> </object>
 </body>
 </html>
+
