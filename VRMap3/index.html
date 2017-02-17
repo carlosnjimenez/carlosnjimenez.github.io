@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cardboard Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+
+			body {padding: 0;margin: 0;}
+			html, body{height: 100%;}
+	
+
+
+#IZQ{
+width:50%;
+height: 100%;
+float: left;
+}
+
+#DER{
+width:50%;
+height: 100%;
+float: right;
+}
+
+XX{
+z-index:9999;
+}
+    </style>
+  </head>
+  <body>
+  <script>
+  function launchFullScreen(element) 
+  {
+	if(element.requestFullScreen) 
+	{
+		element.requestFullScreen();
+	} 
+	else if(element.mozRequestFullScreen) 
+	{
+		element.mozRequestFullScreen();
+	} 
+	else if(element.webkitRequestFullScreen) 
+	{
+		element.webkitRequestFullScreen();
+	}
+} // la pagina entera
+  </script>
+  <DIV id="XX">
+  <input type="button" value="Modo Pantalla completa" onclick="launchFullScreen(document.documentElement);"/>
+  </div>
+<object id="IZQ" type="text/html" data="01.jpg"> </object>
+<object id="DER" type="text/html" data="02.jpg"> </object>
+</body>
+</html>
+
