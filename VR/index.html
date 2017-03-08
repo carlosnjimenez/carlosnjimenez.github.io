@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.32.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.32.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        html, body{ margin:0; padding:0;height: 100%; width:100%}
+        #container { position:absolute; height: 100%; width:100%; }
+		#map { float: left; height: 100%; width:50%; }
+		#map2 { float:right; height: 100%; width:50%; }
+		#XX{z-index:100;display:scroll;position:fixed;margin:0 auto}
+		.button {
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+    </style>
+</head>
+<body>
+ 
+<div id='container'>
+ <DIV id="XX">
+  <input type="button" class="button" value="< + >" onclick="launchFullScreen(document.documentElement);"/>
+  </div>
+<div id='map'></div>
+<div id='map2'></div>
+</div>
+  <script>
+  function launchFullScreen(element) 
+  {
+	if(element.requestFullScreen) 
+	{
+		element.requestFullScreen();
+	} 
+	else if(element.mozRequestFullScreen) 
+	{
+		element.mozRequestFullScreen();
+	} 
+	else if(element.webkitRequestFullScreen) 
+	{
+		element.webkitRequestFullScreen();
+	}
+} // la pagina entera
+  </script>
+<script>
+
+
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic3ludGFnbWF0aWMiLCJhIjoiZTFjYjUwNGFkYjcxMjI5OTMwODhjZTY3NjY4YmI3MGUifQ.zbJ-LWjumyIjYTMVjW_yjA';
+    // OJO IZQUIERDO
+	var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v9',
+        center: [-87.6298, 41.878101],
+        zoom: 17,
+        bearing: 0,
+        pitch: 60,
+        interactive: false
+    });
+	// OJO DERECHO
+	var map2 = new mapboxgl.Map({
+        container: 'map2',
+        style: 'mapbox://styles/mapbox/dark-v9',
+        center: [-87.6298, 41.878103],
+        zoom: 17,
+        bearing: 0,
+        pitch: 60,
+        interactive: false
+    });
+
+    // pixels the map pans when the up or down arrow is clicked
+    var deltaDistance = 100;
+
+    // degrees the map rotates when the left or right arrow is clicked
+    var deltaDegrees = 25;
+
+    function easing(t) {
+        return t * (2 - t);
+    }
+
+    map.on('load', function() {
+	//
+	function deviceOrientationListener(event) {
+       
+	if (event.beta < -10)  
+	{ // left
+                map.easeTo({
+                    bearing: map.getBearing() - deltaDegrees,
+                    easing: easing
+                });  	
+    } 
+			
+	else if ( event.beta > 10) 
+	{ // right
+                map.easeTo({
+                    bearing: map.getBearing() + deltaDegrees,
+                    easing: easing
+                });		
+    }
+			
+	if (event.gamma > -45)  
+				{ // left
+					map.panBy([0, -deltaDistance], {
+                    easing: easing
+					});
+				}	
+      }
+	  //
+        map.getCanvas().focus();
+
+        
+		
+		if (window.DeviceOrientationEvent) {
+        window.addEventListener("deviceorientation", deviceOrientationListener);
+      } else {
+        alert("Sorry, your browser doesn't support Device Orientation");
+      }
+    });
+
+	map2.on('load', function() {
+	//
+	function deviceOrientationListener(event) {
+       
+	if (event.beta < -10)  
+	{ // left
+                map2.easeTo({
+                    bearing: map2.getBearing() - deltaDegrees,
+                    easing: easing
+                });  	
+    } 
+			
+	else if ( event.beta > 10) 
+	{ // right
+                map2.easeTo({
+                    bearing: map2.getBearing() + deltaDegrees,
+                    easing: easing
+                });		
+    }
+			
+	if (event.gamma > -45)  
+				{ // left
+					map2.panBy([0, -deltaDistance], {
+                    easing: easing
+					});
+				}	
+      }
+	  //
+        map2.getCanvas().focus();
+
+        
+		
+		if (window.DeviceOrientationEvent) {
+        window.addEventListener("deviceorientation", deviceOrientationListener);
+      } else {
+        alert("Sorry, your browser doesn't support Device Orientation");
+      }
+    });
+</script>
+
+</body>
+</html>
