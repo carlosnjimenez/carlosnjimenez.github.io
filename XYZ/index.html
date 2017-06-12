@@ -41,7 +41,7 @@
 
 		scene = new THREE.Scene();
 		camera = new THREE.PerspectiveCamera(45,window.innerWidth / window.innerHeight,0.1,1);
-		controls = new THREE.DeviceOrientationControls( cssElement );
+		controls = new THREE.DeviceOrientationControls( camera );
 
 		renderer = new THREE.CSS3DRenderer();
 		renderer.setSize(window.innerWidth, window.innerHeight);

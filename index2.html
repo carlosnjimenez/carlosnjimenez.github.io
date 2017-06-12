@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		<div id="mapa"  ></div>
-		<div class="fixed-action-btn vertical click-to-toggle" style="bottom: 24px; right: 24px;">
+		<div class="fixed-action-btn horizontal click-to-toggle" style="top: 24px; right: 24px;">
 			<a class="btn-floating btn-large cyan accent-4"><i class="large material-icons">menu</i></a>
 			<ul>
 				<li><a class="btn-floating orange" onclick="ZIn()"><i class="material-icons">add</i></a></li>
@@ -25,6 +25,7 @@
 				<li><a class="btn-floating grey lighten-2" onclick="refresh()"><i class="material-icons grey-text text-darken-3">refresh</i></a></li>
 			</ul>
 		</div>
+		<div style="position: absolute; left: 24px; bottom: 24px;"><a href="https://www.facebook.com/simiungs/"><img src="images/logoLabSIG.png" alt="LabSIG"></a></div>
 		<script src="js/leaflet.js"></script>
 		<script>
 			var popup = L.popup();
