@@ -28,7 +28,7 @@
 		<script src="js/leaflet.js"></script>
 		<script>
 			var popup = L.popup();
-			var mapa = L.map('mapa', {center: [-34.52203, -58.70014],zoom: 16, zoomControl: false});
+			var mapa = L.map('mapa', {center: [-34.61004, -58.43834],zoom: 11, zoomControl: false});
 			L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 			}).addTo(mapa);
 			
@@ -36,7 +36,6 @@
 			function ZOut() {mapa.setZoom((mapa.getZoom())-1);}
 			function refresh() {mapa.setView([-34.52666, -58.70068],16);}
 			mapa.attributionControl.setPrefix('&copy; 2016 <a href="http://www.ungs.edu.ar/labsig/" target="_blank">LabSIG ICO UNGS</a>');
-			var popup = L.popup();
 		</script>
 	</body>
 </html>
