@@ -4,14 +4,30 @@
 		<title>test</title>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<style>
-			body {padding: 0;margin: 0;}
-			html, body, #mapa {height: 100%;}
+.video-responsive {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px;
+height: 0;
+overflow: hidden;
+}
+ 
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
 		</style>
 	</head>
 	<body>
 
 
-
-	<iframe src="https://www.youtube.com/embed/2OzlksZBTiA" scrolling="no" frameborder="0" height="100%" width="100%" allowfullscreen="allowfullscreen"></iframe>
+<div class="”video-responsive”">
+	<iframe src="https://www.youtube.com/embed/2OzlksZBTiA" frameborder="0" height="460px" width="100%" allowfullscreen="allowfullscreen"></iframe>
+	</div>
 	</body>
 </html>
