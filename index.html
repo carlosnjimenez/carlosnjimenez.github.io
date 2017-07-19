@@ -16,6 +16,8 @@
 	<body>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
+
+
 		<div id="mapa"  ></div>
 		<div class="fixed-action-btn vertical click-to-toggle" style="bottom: 24px; right: 24px;">
 			<a class="btn-floating btn-large cyan accent-4"><i class="large material-icons">menu</i></a>
@@ -34,8 +36,10 @@
 			
 			function ZIn() {mapa.setZoom((mapa.getZoom())+1);}
 			function ZOut() {mapa.setZoom((mapa.getZoom())-1);}
-			function refresh() {mapa.setView([-34.52666, -58.70068],16);}
+			function refresh() {mapa.setView([-34.61004, -58.43834],11);}
 			mapa.attributionControl.setPrefix('&copy; 2016 <a href="http://www.ungs.edu.ar/labsig/" target="_blank">LabSIG ICO UNGS</a>');
+	
+		
 		</script>
 	</body>
 </html>
