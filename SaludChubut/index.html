@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Salud Chubut</title>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+                <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+		<script src="leaflet-routing-machine.js"></script>
+		<link rel="stylesheet" href="leaflet-routing-machine.css" /> 
+        <style>
+			body {padding: 0;margin: 0;position: relative;}
+			html, body{height: 100%;}
+			#map { height: 90%;}
+			#botBus {background: #004992;color:#fff;border-radius:0px;border-width:0;height: 10%;font-size:16px;width: 100%;z-index:6;  position: absolute;}
+        </style>
+    </head>
+    <body>
+        <div id='map'></div>
+        <button id='botBus'>Buscar</button>
+        <script src='leaflet-knn.js'></script>
+        <script src='CSalud.js'></script>
+        <script>
+			// create custom icon
+			var firefoxIcon = L.icon
+			({
+				iconUrl: '00.svg',
+				iconSize: [38, 38], // size of the icon
+			});
+			
+			var popup = L.popup();
+			// create marker object, pass custom icon as option, add to map         
+			//var marker = L.marker([43.64701, -79.39425], {icon: firefoxIcon}).addTo(map);
+			
+			var map = L.map('map').setView([-45.8323115,-67.4725587], 14),
+			
+			gjLayer = L.geoJson
+			(
+				sanidad, 
+				{
+					pointToLayer: function (feature, latlng) 
+					{
+						return L.marker(latlng, {icon: firefoxIcon});
+					},
+					onEachFeature: function (feature, layer) 
+					{
+						layer.bindPopup('<B>' + 
+						feature.properties.DENOMINACI+ '</B><br><a style="color:blue;">'+
+						feature.properties.DIRECCIÓN+", "+
+						feature.properties.BARRIO+", "+
+						feature.properties.CIUDAD+"<br /></a> Tel: "+
+						feature.properties.TELEFONO);
+					}
+				}
+			);
+
+			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+			
+			gjLayer.addTo(map);
+
+			document.getElementById('botBus').onclick = function() 
+			{
+				navigator.geolocation.getCurrentPosition
+				(
+					function(pos) 
+					{
+						var res = leafletKnn(gjLayer).nearest([pos.coords.longitude, pos.coords.latitude], 2);
+						var arr;
+						if (res.length) 
+						{
+							document.getElementById('botBus').innerHTML = 'Unidad mas cercana: ' + res[0].layer.feature.properties.DENOMINACI;
+							coordenadas = res[0].layer.feature.geometry.coordinates;
+							arr = L.GeoJSON.coordsToLatLng(coordenadas);
+							map.setView(arr,15);
+						} 
+						else 
+						{
+							document.getElementById('botBus').innerHTML = 'ERROR: Fuera de rango';
+						}
+						
+						var control = L.Routing.control
+						({
+							waypoints: 
+							[
+								L.latLng(pos.coords.latitude, pos.coords.longitude),
+								L.latLng(arr)
+							],
+							routeWhileDragging: true,
+							reverseWaypoints: true,
+							showAlternatives: true,
+							altLineOptions: 
+							{
+								styles: 
+								[
+									{color: 'black', opacity: 0.15, weight: 9},
+									{color: 'white', opacity: 0.8, weight: 6},
+									{color: 'blue', opacity: 0.5, weight: 2}
+								]
+							}
+						}).addTo(map);
+
+						L.Routing.errorControl(control).addTo(map);
+
+						L.Routing.Formatter = L.Class.extend
+						({
+							options: 
+							{
+								language: 'sp'
+							}
+						});
+						
+						
+					}
+				);
+			
+			};
+			
+			
+		
+        </script>
+    </body>
+</html>
