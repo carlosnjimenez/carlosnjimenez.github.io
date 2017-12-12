@@ -102,7 +102,7 @@
 			
 		var oS = new L.Control.opacitySlider();
 		map.addControl(oS);
-
+		oS.setOpacityLayer(campoDeMayo);
 		map.on('baselayerchange', function() 
 			{
 				if (control.getActiveBaseLayer().name == "1:100.000")
