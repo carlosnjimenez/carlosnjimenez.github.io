@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio1</title>
+		<meta charset="utf-8" />
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="css/leaflet.css" />
+		<style>
+			body {padding: 0;margin: 0;}
+			html, body, #mapa {height: 100%;}
+
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } 
+.info h4 { margin: 0 0 5px; color: #777; }
+.legend { text-align: left; line-height: 18px; color: #555; } 
+.legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<div id="mapa"  ></div>
+		<div class="fixed-action-btn horizontal click-to-toggle" style="top: 24px; right: 24px;">
+			<a class="btn-floating btn-large blue"><i class="large material-icons">menu</i></a>
+			<ul>
+				<li><a class="btn-floating orange" onclick="ZIn()"><i class="material-icons">add</i></a></li>
+				<li><a class="btn-floating orange" onclick="ZOut()"><i class="material-icons">remove</i></a></li>
+				<li><a class="btn-floating grey lighten-2" onclick="refresh()"><i class="material-icons grey-text text-darken-3">refresh</i></a></li>
+			</ul>
+		</div>
+		<div style="position: absolute; left: 24px; bottom: 24px;"><a href="https://www.facebook.com/simiungs/"><img src="images/logo.png" alt="SiMiUNGS"></a></div>
+		<script src="js/leaflet.js"></script>
+		
+<script type="text/javascript" src="TasaMI_2014.js"></script>
+		<script>
+		
+			var popup = L.popup();
+			var mapa = L.map('mapa', {center: [-34.52666, -58.70068],zoom: 16, zoomControl: false});
+			L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {attribution: ' Map data: <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}).addTo(mapa);
+			
+			function ZIn() {mapa.setZoom((mapa.getZoom())+1);}
+			function ZOut() {mapa.setZoom((mapa.getZoom())-1);}
+			function refresh() {mapa.setView([-34.52666, -58.70068],16);}
+			mapa.attributionControl.setPrefix('&copy; 2016 <a href="http://www.ungs.edu.ar/labsig/" target="_blank">LabSIG ICO UNGS</a>');
+			//var popup = L.popup();
+
+			function onMapClick(e) {
+			popup
+				.setLatLng(e.latlng)
+				.setContent("You clicked the map at " + e.latlng.toString())
+				.openOn(mapa);
+			}
+
+			mapa.on('click', onMapClick);
+		
+			// control that shows state info on hover
+			var info = L.control();
+
+			info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+
+	info.update = function (props) {
+		this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
+			'<b>' + props.name + '</b><br />' + props.Año2014 + ' people / mi<sup>2</sup>'
+			: 'Hover over a state');
+	};
+
+	info.addTo(mapa);
+
+
+	// get color depending on population density value
+	function getColor(d) {
+		return d > 13  ? '#E31A1C' :
+				d > 11  ? '#FC4E2A' :
+				d > 9   ? '#FD8D3C' :
+				d > 7  ? '#FEB24C' :
+				d > 6   ? '#FED976' :
+							'#FFEDA0';
+	}
+
+	function style(feature) {
+		return {
+			weight: 2,
+			opacity: 1,
+			color: 'white',
+			dashArray: '3',
+			fillOpacity: 0.7,
+			fillColor: getColor(feature.properties.Año2014)
+		};
+	}
+
+	function highlightFeature(e) {
+		var layer = e.target;
+
+		layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.7
+		});
+
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+		}
+
+		info.update(layer.feature.properties);
+	}
+
+	var geojson;
+
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		info.update();
+	}
+
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+	}
+
+	geojson = L.geoJson(data, {
+		style: style,
+		onEachFeature: onEachFeature
+	}).addTo(mapa);
+
+
+
+
+	var legend = L.control({position: 'bottomright'});
+
+	legend.onAdd = function (mapa) {
+
+		var div = L.DomUtil.create('div', 'info legend'),
+			grades = [6, 7, 9, 11, 13],
+			labels = [],
+			from, to;
+
+		for (var i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
+
+			labels.push(
+				'<i style="background:' + getColor(from + 1) + '"></i> ' +
+				from + (to ? '&ndash;' + to : '+'));
+		}
+
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+
+	legend.addTo(mapa);
+
+		</script>
+	</body>
+</html>
