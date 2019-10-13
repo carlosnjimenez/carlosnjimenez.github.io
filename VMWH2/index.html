@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Producto</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="leaflet.css" />
+	<link rel="stylesheet" href="Control.Opacity.css">
+    <link rel="stylesheet" href="jquery-ui-1.10.3.custom.min.css" />
+	
+	<style>
+			body {padding: 0;margin: 0;}
+			html, body, #map {height: 100%;}
+	</style>
+	
+	<script src="jquery-1.9.1.js"></script>
+    <script src="jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="leaflet.js"></script>
+	<script src="Control.Opacity.js"></script>
+	<script src="leaflet-side-by-side.js"></script>
+	<script src="ActiveLayers.js"></script>
+</head>
+<body>
+	<div id="map" style="width: 100%; height: 100%;"></div>
+
+	
+	
+	<div style="position: absolute;padding: 6px 6px 1px 6px; box-shadow: 0 1px 5px rgba(0,0,0,0.4);border-radius: 5px;color: #333; background: #fff; left: 24px; bottom: 24px;"><a href="#"><img src="logo.png" alt=""></a></div>
+	<div style="position: absolute; right: 24px; top: 24px;">
+	<script>		
+		var bounds = new L.LatLngBounds([-34.67465,-58.75939],[-34.49164,-58.49284]);
+
+		var map = L.map
+		(
+			'map', 
+			{
+				maxZoom : 15,
+				minZoom : 1,
+				inertia : false,
+			}
+		);
+
+		map.fitBounds(bounds);
+
+		var OSM = L.tileLayer
+		(
+			'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', 
+			{
+				maxZoom: 15,
+				attribution: '&copy; 2017 <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}
+		)
+		.addTo(map);
+
+
+		var OSM2 = L.tileLayer
+		(
+			'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', 
+			{
+				maxZoom: 15,
+				attribution: '&copy; 2017 <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}
+		)
+		.addTo(map);
+
+		var campoDeMayo = L.tileLayer
+		(
+			'http://ideconurbano.ungs.edu.ar/geoserver/gwc/service/gmaps?layers=IDE:_1_50k&zoom={z}&x={x}&y={y}&format=image/png8',
+			{
+				maxZoom: 15,
+				attribution: '<a href="http://www.ungs.edu.ar">UNGS</a> , <a href="http://www.ign.gob.ar">IGN</a>',
+			}
+		)
+		.addTo(map);
+
+		var campoDeMayo2 = L.tileLayer
+		(
+			'http://ideconurbano.ungs.edu.ar/geoserver/gwc/service/gmaps?layers=IDE:_1_100k_30_2097&zoom={z}&x={x}&y={y}&format=image/png8',
+			{
+				maxZoom: 15,
+				attribution: '<a href="http://www.ungs.edu.ar">UNGS</a> , <a href="http://www.ign.gob.ar">IGN</a>',
+			}
+		);
+
+		var overlayLayers =
+		{
+			'Comparar': OSM
+		}
+		
+		var  baseLayers = 
+		{
+			'1:50.000': campoDeMayo,
+			'1:100.000': campoDeMayo2,
+		}
+	
+		var control = L.control.activeLayers(baseLayers,overlayLayers)
+		control.addTo(map);
+
+		L.control.sideBySide
+		(
+			baseLayers,
+			OSM
+		).addTo(map);
+			
+		var oS = new L.Control.opacitySlider();
+		map.addControl(oS);
+		oS.setOpacityLayer(campoDeMayo);
+		map.on('baselayerchange', function() 
+			{
+				if (control.getActiveBaseLayer().name == "1:100.000")
+				{
+				campoDeMayo2.setOpacity(slider_value) = ui.value / 100;
+					oS.setOpacityLayer(campoDeMayo2);
+					
+				}
+				else
+				{
+				
+					oS.setOpacityLayer(campoDeMayo);
+				}
+			}
+		 );
+ 
+	</script>
+</body>
+</html>
