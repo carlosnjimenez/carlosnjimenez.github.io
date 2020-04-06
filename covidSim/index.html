@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Coronavirus Spread Simulator</title>
+
+  <meta name="description" content="Coronavirus Spread Simulator with different strategies. Open source.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link as="script" rel="preload" href="p5.min.js" />
+  <link as="script" rel="modulepreload" href="app.js" />
+  <link as="script" rel="modulepreload" href="options.js" />
+  <link as="script" rel="modulepreload" href="dom.js" />
+  <link as="script" rel="modulepreload" href="Ball.js" />
+  <link as="script" rel="modulepreload" href="results.js" />
+  <link as="script" rel="modulepreload" href="collisions.js" />
+  
+  <script defer src="p5.min.js"></script>
+  <script type="module" src="app.js"></script>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+    
+      @font-face {
+font-family: humanst521-bt-bold;
+src: url(humanst521-bt-bold.woff);
+}
+      
+      
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    #share {
+      position: fixed;
+      bottom: 16px;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px 0 0px 5px;
+      background: rgba(0, 153, 255, 0.25);
+      z-index: 1;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 4px 16px;
+      color: #000;
+    }
+
+    #share:hover {
+      background: rgba(0, 153, 255, 0.5);
+    }
+
+    body {
+      align-items: center;
+      background-image: none;
+      background-position: 0 0, 25px 25px;
+      background-size: 50px 50px;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Verdana', Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
+      justify-content: center;
+      margin: 0 auto;
+      user-select: none;
+      width: 360px;
+    }
+
+    h1 {
+        font-family: humanst521-bt-bold;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    canvas {
+      border: 1px solid #eee;
+    }
+
+    #graph {
+      margin-bottom: 1px;
+      transform: scaleY(-1);
+    }
+
+    #count {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    #count div {
+      margin-bottom: 16px;
+      padding: 0 10px;
+    }
+
+    #count span {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    footer {
+      padding-bottom: 8px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    footer a {
+      color: #09f;
+      text-decoration: none;
+    }
+
+    form {
+      display: flex;
+      justify-content: space-around;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+
+    label {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    #canvas {
+      margin: auto;
+      padding-bottom: 16px;
+      position: relative;
+    }
+
+    #replay {
+      align-items: center;
+      background: rgba(255, 255, 255, .85);
+      cursor: pointer;
+      display: flex;
+      height: 100%;
+      font-weight: 500;
+      font-size: 21px;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+    }
+
+    #death-count {
+      display: none;
+    }
+
+    #death-count.show {
+      display: block;
+    }
+
+    @media (min-width: 800px) {
+      body {
+       width: 800px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Simulador COVID-19</h1>
+  <main>
+    <header>
+      <form>
+        <label aria-label="Activa el filtro 'Me quedo en casa'" title="Me quedo en casa">
+          <input id="stay-home" type="checkbox">Si me quedo en casa
+        </label>
+        <label aria-label="Activa visualización de muertes" title="Muertes causadas por el virus">
+          <input id="deaths" type="checkbox">Mostrar muertes
+        </label>
+      </form>
+
+      <div id="count">
+        <div>Suceptibles o Sanos<br /><span id="well">0</span></div>
+        <div>Recuperados<br /><span id="recovered">0</span></div>
+        <div>Infectados o Enfermos<br /><span id="infected">0</span></div>
+        <div id="death-count">Muertos<br /><span id="death">0</span></div>
+        <div>Cantidad máxima de enfermos<br /><span id="max-concurrent-infected">0</span></div>
+      </div>
+
+      <svg id="graph" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="50" width="100%" aria-labelledby="Grafico crecimiento del virus" role="img">
+        <title>Gráfico de crecimiento del virus</title>
+      </svg>
+    </header>
+    <section>
+      <div id="canvas">
+        <div id="replay" style='display: none'>Iniciar nueva simulación</div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    La presente simulación está basada en un el artículo del Washington Post e incorpora código fuente de @midudev
+  </footer>
+</body>
+</html>
