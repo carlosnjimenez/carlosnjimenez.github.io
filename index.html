@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ejemplo de cambio de src de iframe</title>
+</head>
+<body>
+	<h1>Ejemplo de cambio de src de iframe</h1>
+	<iframe id="mi-iframe" src="" frameborder="0" ></iframe>
+	<script>
+			var iframe = document.getElementById("mi-iframe");
+			const date = Date.now();
+			iframe.src = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + date + "&choe=UTF-8";
+	</script>
+</body>
+</html>
