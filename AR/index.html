@@ -6,15 +6,29 @@
 <meta name="viewport" content="width=device-width, user-scalable=no" />
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-<body style='margin : 0px; overflow: hidden;'>
-<a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-	<a-marker type='barcode' value='5'>
-			<a-entity 
+    <script src="https://fcor.github.io/arjs-gestures/gesture-detector.js"></script>
+    <script src="https://fcor.github.io/arjs-gestures/gesture-handler.js"></script>
+<body style="width: 1920px; height: 1440px; margin-left: 0px; margin-top: -238.5px;">
+<a-scene arjs="" embedded="" renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector="" id="scene" inspector="" keyboard-shortcuts="" screenshot="" device-orientation-permission-ui="">
+	<a-assets>
+        <a-asset-item id="bowser" src="https://github.com/carlosnjimenez/carlosnjimenez.github.io/blob/master/AR/scene.gltf">
+        </a-asset-item>
+      </a-assets>
+<!-- <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'> -->
+	<a-marker preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA" material="" arjs-anchor="" arjs-hit-testing="">
+	<!-- <a-marker type='barcode' value='5'> 
+			 <a-entity 
 				gltf-model=”url(scene.gltf)”>
-			</a-entity>
+			</a-entity> 
 	
-		</a-marker>
+		</a-marker> -->
+		 <a-entity id="bowser-model" gltf-model="#bowser" position="0 0 0" scale="0.05 0.05 0.05" class="clickable" gesture-handler="">
+        </a-entity>  </a-marker>
 			<a-entity camera></a-entity>
+	
+
+	 <canvas class="a-canvas" data-aframe-canvas="true" width="1920" height="1440"></canvas><div class="a-loader-title" style="display: none;">Gesture Interactions - A-Frame &amp; AR.js</div>
+	<a-entity light="" data-aframe-default-light="" aframe-injected=""></a-entity><a-entity light="" position="" data-aframe-default-light="" aframe-injected=""></a-entity>
 	</a-scene>
 </body>
 </html>
