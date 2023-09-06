@@ -9,12 +9,12 @@
     <script src="https://fcor.github.io/arjs-gestures/gesture-detector.js"></script>
     <script src="https://fcor.github.io/arjs-gestures/gesture-handler.js"></script>
 <body style="width: 1920px; height: 1440px; margin-left: 0px; margin-top: -238.5px;">
-<a-scene arjs="" embedded="" renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector="" id="scene" inspector="" keyboard-shortcuts="" screenshot="" device-orientation-permission-ui="">
+<a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector="" id="scene" inspector="" keyboard-shortcuts="" screenshot="" device-orientation-permission-ui="">
 	<a-assets>
         <a-asset-item id="bowser" src="scene.gltf">
         </a-asset-item>
       </a-assets>
-<!-- <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'> -->
+<!-- <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>embedded="" -->
 	<a-marker type="barcode" value="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA" material="" arjs-anchor="" arjs-hit-testing="">
 	<!-- <a-marker type='barcode' value='5'> preset="hiro"
 			 <a-entity 
