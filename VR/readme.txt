@@ -1216,13 +1216,16 @@ C4FDC810,TEST SISTEMA 2                ,10000077,0
 4854FDF5,CARD #8                       ,10000005,1
 17E84A60,Nuñez Lotocki Juan Ignacio    ,42952290,1
 17E853E0,Castaneda  Joerne             ,CFOXXXXX,1
-17E85440,De Zan  Ines                  ,45846035,1
 17E85D40,Mathus  Thiago                ,45989951,1
 17F51BA0,Sanchez Staiger  Facundo      ,42887031,4
+17E85440,De Zan Ines                   ,45846035,1
 17F521A0,Benavent Brianti  Jose Maria  ,43837674,4
 17F537A0,Dermenddieff  Juan Carlos     ,35620149,5
 26E7BC1D,Gaston Marcelo  Diaz          ,39316229,1
 48229E7D,Gonzalo Ernesto Javier        ,23069886,1
+17E85460,Benintende Maria Hilda        ,32405935,1
+17F50AA0,Carrella Julian               ,04230196,5
+44409760,Rodriguez Grossi Joaquin      ,50336489,2
 9CC585E,Fondato  Franco David         ,31741947,1
 9CC8FEE,Pibernus Marco                ,00002507,4
 9CCD09E,Lopez Salvia Carolina         ,35525245,4
