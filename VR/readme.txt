@@ -945,8 +945,8 @@ FCDFC97A,Gonzalez Abarca Felix Jose    ,95638011,1
 FCDFD93A,Ferrari  Guillermo Daniel     ,16895225,3
 FCE010EA,Fuhr  Mauricio Luis           ,37975347,1
 FD02D310,Ricardo Sousa                 ,12345678,5
-C4FDC810,TEST SISTEMA 2                ,XXXXXXXX,5
-2CC59AA2,TEST SISTEMA 3                ,XXXXXXXX,5
+C4FDC810,TEST SISTEMA 2                ,XXXXXXXX,0
+2CC59AA2,TEST SISTEMA 3                ,XXXXXXXX,0
 7A8EACEB,CARD #5                       ,XXXXXXXX,5
 4854FDF5,CARD #8                       ,XXXXXXXX,5
 9CC585E,Fondato  Franco David         ,31741947,1
