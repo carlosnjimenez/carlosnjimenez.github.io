@@ -761,6 +761,7 @@
 8F7A0612,Godoy  Sandra Karina          ,30273263,1
 8F7A36E2,Konig  Andres Roberto         ,34743923,1
 8F7B5652,Consigliere  Sebastian        ,25216884,1
+8F7B8CE2,Schwarz Amilcar               ,26740019,1
 8F7BB722,Arce  Silvina Veronica        ,24336940,1
 8F7C0F92,Trelles  Juan Manuel          ,26122954,1
 8F7C4E72,Peñuela Parra Jose Rodrigo    ,96071397,1
