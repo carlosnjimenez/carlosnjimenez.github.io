@@ -1,3 +1,8 @@
+17F53A00,Castiglioni Santiago Eduardo  ,31302857,4
+17F57160,Maria Florencia Palmieri      ,27119779,4
+17E84A00,Maik Voigt                    ,96111718,1
+17E84A40,Romina Anabel Bernal          ,40886276,1
+8F7B8CE2,Schwarz Amilcar               ,26740019,1
 00000011,Rodriguez Macarena            ,38998478,1
 00000016,Seco Nelida                   ,16253028,1
 09CC585E,Fondato  Franco David         ,31741947,1
