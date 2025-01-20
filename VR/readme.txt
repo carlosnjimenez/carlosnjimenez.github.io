@@ -1,3 +1,9 @@
+17E87760,Valeria Yanina Vera           ,42934202,1
+17E86AC0,German Alejandro Mitaritonna  ,41917371,1
+17E86A60,Daniela Rocio Russo           ,38851597,1
+17E86AA0,Joncquel Maryline             ,19043613,1
+17E86A80,Agustin Oscar Martinez        ,42421169,1
+17E86A40,Romina Soledad Gauna          ,28382991,1
 17E84920,Passano Agustina              ,46584062,1
 17E84A20,Katherine Ludmila Pagnotta    ,40956698,1
 17F57500,Martins Victor                ,96428817,5
