@@ -960,10 +960,10 @@ FCDFC97A,Gonzalez Abarca Felix Jose    ,95638011,1
 FCDFD93A,Ferrari  Guillermo Daniel     ,16895225,3
 FCE010EA,Fuhr  Mauricio Luis           ,37975347,1
 FD02D310,Ricardo Sousa                 ,12345678,5
-C4FDC810,TEST SISTEMA 2                ,XXXXXXXX,0
-2CC59AA2,TEST SISTEMA 3                ,XXXXXXXX,0
-7A8EACEB,CARD #5                       ,XXXXXXXX,5
-4854FDF5,CARD #8                       ,XXXXXXXX,5
+C4FDC810,Reset Contador                ,XXXXXXXX,0
+2CC59AA2,Reset Contador                ,XXXXXXXX,0
+7A8EACEB,Test Card 5                   ,XXXXXXXX,5
+4854FDF5,Test Card 8                   ,XXXXXXXX,5
 9CC585E,Fondato  Franco David         ,31741947,1
 9CC8FEE,Pibernus Marco                ,00002507,4
 9CCD09E,Lopez Salvia Carolina         ,35525245,4
@@ -982,5 +982,5 @@ A26AA4E,Gonzalez Cesar Antonio        ,00021035,1
 A26EA3E,Camino Maria Noelia           ,31937360,1
 A27E96E,Ruiz Garcia Rodrigo Bernardo  ,3714306X,3
 A2870BE,Tagliabue  Bruno Javier       ,25677254,1
-FEC963BD, Test Card D                  ,10000004,1
-FEE963BD, Test Card E                  ,10000005,1
+FEC963BD,Test Card D                   ,10000004,5
+FEE963BD,Test Card E                   ,10000005,5
