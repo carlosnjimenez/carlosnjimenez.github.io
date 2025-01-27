@@ -1,3 +1,4 @@
+17E86A20,Aguirre Magali                ,41214905,1
 17E87760,Valeria Yanina Vera           ,42934202,1
 17E86AC0,German Alejandro Mitaritonna  ,41917371,1
 17E86A60,Daniela Rocio Russo           ,38851597,1
