@@ -1,3 +1,15 @@
+17F570C0,Cafiero Elena	               ,47756578,3
+17F57120,Paredes Julian	               ,47961529,3
+17E85100,Andolfi Trinidad	             ,42897205,1
+17E868E0,Petrocelli Lucca	             ,43570869,1
+17E86940,Morales Franco David        	 ,38631337,1
+17E869E0,Diaz Camila Florencia	       ,41898184,1
+17E868A0,Gasser Mariana	               ,27862871,1
+17E86900,Fernandez Rocio Belen	       ,43311459,1
+17E85140,Ivanissevich, Mathias	       ,39436137,1
+17E851A0,Dagger Velazco Alba	         ,95991827,1
+17F56780,Franco Esteban Neoren	       ,44241147,4
+36091E20,Saida Febres                  ,00021568,4
 17E86A20,Aguirre Magali                ,41214905,1
 17E87760,Valeria Yanina Vera           ,42934202,1
 17E86AC0,German Alejandro Mitaritonna  ,41917371,1
