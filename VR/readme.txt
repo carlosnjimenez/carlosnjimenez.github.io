@@ -3,7 +3,7 @@
 17F57120,Paredes Julian	               ,47961529,3
 17E85100,Andolfi Trinidad              ,42897205,1
 17E868E0,Petrocelli Lucca              ,43570869,1
-17E86940,Morales Franco David        	 ,38631337,1
+17E86940,Morales Franco David          ,38631337,1
 17E869E0,Diaz Camila Florencia	       ,41898184,1
 17E868A0,Gasser Mariana	               ,27862871,1
 17E86900,Fernandez Rocio Belen	       ,43311459,1
