@@ -1,7 +1,7 @@
 17F56920,Mendes Pedro                  ,94157533,4
 17F570C0,Cafiero Elena	               ,47756578,3
 17F57120,Paredes Julian	               ,47961529,3
-17E85100,Andolfi Trinidad	             ,42897205,1
+17E85100,Andolfi Trinidad              ,42897205,1
 17E868E0,Petrocelli Lucca	             ,43570869,1
 17E86940,Morales Franco David        	 ,38631337,1
 17E869E0,Diaz Camila Florencia	       ,41898184,1
