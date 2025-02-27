@@ -1,3 +1,9 @@
+17E853E0,Castaneda Joerne              ,96433673,1
+17F523A0,Sanchez Yamil                 ,36039138,5
+17E865C0,Lopez Lucas Ariel             ,33421416,1
+17F52340,Marchini Ricardo              ,31694415,4
+17E86740,Gil Ramon Emilio              ,96035014,1
+17E86760,Saint Germain Jose            ,41586083,1
 17F56920,Mendes Pedro                  ,94157533,4
 17F570C0,Cafiero Elena	               ,47756578,3
 17F57120,Paredes Julian	               ,47961529,3
