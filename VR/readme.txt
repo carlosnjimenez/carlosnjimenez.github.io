@@ -1,3 +1,10 @@
+17F53A40,Sofia Gavuzzo                 ,44998695,4
+17F53420,Valentin Montanari            ,43471371,4
+17E85DC0,Camila Lourdes Esquivel       ,42287788,1
+17E86100,Catalina Belen Ruchi          ,71657893,1
+17E866A0,Maximilian Sprenkmann         ,63219931,1
+20B8AF74,Brancatelli Hernan            ,25836528,4
+B98CFF00,Brito Walter Andres           ,29670051,1
 17E86720,Justina Maria Walther         ,46124357,1
 17F527A0,Perez Genesis                 ,00018056,5
 17F567A0,Matias Omar Torres            ,32868188,4
