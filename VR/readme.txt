@@ -238,7 +238,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 17F57000,Fiorenzo  Sebastian           ,40979154,4
 17F570A0,Perez Vallejo Andrea Carolina ,35430149,4
 17F571C0,Trucco Cano Daniel Jose       ,92705242,1
-17F57340,Cano Thomas Ezequiel          ,44686191,5
+17E86620,Cano Thomas Ezequiel          ,44686191,5
 17F57380,Lapena  Martin Esteban        ,40769182,1
 17F573C0,Kalemberg Lautaro             ,43383906,5
 17F573E0,Koch Karina                   ,24564692,5
