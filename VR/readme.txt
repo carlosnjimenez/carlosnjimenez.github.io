@@ -1,12 +1,14 @@
-17E87AC0,Chacon, Maria Gabriela        ,95919274,1
-17E861E0,Sapag, Josefina Maria         ,45233793,1
-17E85F80,Rich, Candelaria              ,44553140,1
-17E85FC0,Grilauskas, Zoe               ,43850520,1
-17F52880,Bordon, Luciano Nicolas       ,41470226,5
-17F575E0,Amadio, Angel Mario           ,21010923,4
+17E86980,Rodriguez Varela Francisca    ,46124458,1
+B98CFF80,Navarro Jonathan Matias       ,32117358,1
+17E87AC0,Chacon  Maria Gabriela        ,95919274,1
+17E861E0,Sapag  Josefina Maria         ,45233793,1
+17E85F80,Rich  Candelaria              ,44553140,1
+17E85FC0,Grilauskas  Zoe               ,43850520,1
+17F52880,Bordon  Luciano Nicolas       ,41470226,5
+17F575E0,Amadio  Angel Mario           ,21010923,4
 870E4CE0,Alejo Diez                    ,08037730,4
-17E85F20,Guerra, Lucia Belen           ,44870573,1
-17E869C0,Ayerza, Marcos Jose           ,42305936,1
+17E85F20,Guerra  Lucia Belen           ,44870573,1
+17E869C0,Ayerza  Marcos Jose           ,42305936,1
 17E85E40,Fornaro Nuñez Ivan Josue      ,43170165,3
 17E85E60,Yeniree Josefina Ibarra Lopez ,95749993,1
 17E85E20,Inaki Joaquin Lorences        ,45824417,1
