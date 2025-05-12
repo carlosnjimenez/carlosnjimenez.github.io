@@ -1,3 +1,10 @@
+17E864C0,Mateo Agustin Filleti         ,43984323,1
+17E86920,Tomas Galo Lanfranchi         ,45582199,1
+17E854A0,Martina Florencia Rodriguez   ,45909010,1
+17E854C0,Agustina Ana Maria Bustos     ,42419231,1
+17E85480,Thomas Alejandro Palacio      ,42930283,1
+17E861C0,Jesus Maria Moresca           ,43448533,1
+17E86780,Chiara Abril Angione          ,43987521,1
 17E86980,Rodriguez Varela Francisca    ,46124458,1
 B98CFF80,Navarro Jonathan Matias       ,32117358,1
 17E87AC0,Chacon  Maria Gabriela        ,95919274,1
