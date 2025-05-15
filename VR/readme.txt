@@ -459,7 +459,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 2E0E5F0D,Alfonso Matias                ,41746997,1
 2E0E5F3D,Barbaro Juan Ignacio          ,43442479,1
 2E0E616D,Leonel Massone                ,24817106,3
-2E0E63CD,Waldman Ignacio               ,26801161,1
+17E86220,Waldman Ignacio               ,26801161,1
 2E0E65AD,San Miguel Gonzalo            ,41991483,1
 2E0E65DD,Salas  Lorena Soledad         ,30229699,1
 2E0E6BDD,Marek  Javier                 ,23299275,1
