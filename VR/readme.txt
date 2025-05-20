@@ -1,3 +1,7 @@
+17E86300,Galante Blanco Luca           ,40890414,1
+17F53280,Abrego  Eliana Gabriela       ,43149339,4
+17F56880,Zorzenon  Candela Luciana     ,41351558,4
+B9A02FC0,Sansosti Lopez Olmo           ,33405654,5
 17E864C0,Mateo Agustin Filleti         ,43984323,1
 17E86920,Tomas Galo Lanfranchi         ,45582199,1
 17E854A0,Martina Florencia Rodriguez   ,45909010,1
@@ -929,7 +933,7 @@ A6A7EEA0,Ekaterina Podnebesnova        ,55030063,4
 A6B54C40,Mads Jordt                    ,00010184,1
 AEBA7980,Lapuchevsky German            ,27023554,1
 AEC319C0,Sanchez Andres                ,25504425,4
-AEC38160,Verna  Vanina                 ,25096064,4
+17F56840,Verna  Vanina                 ,25096064,4
 AEC56B60,Fernando Tanco                ,25477375,1
 AFD354D9,Ramesh Ila                    ,12365748,1
 B105CA0A,Henze  Roberto                ,93270567,1
