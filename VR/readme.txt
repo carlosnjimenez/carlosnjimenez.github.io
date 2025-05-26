@@ -1,3 +1,6 @@
+17E87AA0,Aguggiaro jacobo Manuel	     ,94408592,1
+B98CFF60,Chura Vega Christian Antonio	 ,40541442,1
+B98CFF20,Novaczyk  Uriel	             ,25238415,1
 17E86300,Galante Blanco Luca           ,40890414,1
 17F53280,Abrego  Eliana Gabriela       ,43149339,4
 17F56880,Zorzenon  Candela Luciana     ,41351558,4
