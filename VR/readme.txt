@@ -1,3 +1,10 @@
+17E85360,Agustin Uriel Rostan          ,48039161,3
+17E84B40,Tobias Lautaro Carthy         ,47558666,3
+17E85320,Kevin Ezequiel  Viera         ,47496301,3
+17E87A60,Mateo Andre Lugli             ,47860436,1
+17E87A80,Matias Santiago Cecchini      ,47832633,1
+17E86C80,Dante Andres                  ,44521313,1
+17E87B00,Emiliano Martin Solorzano     ,42494674,1
 17E849A0,Pla Nahuel                    ,46571911,1
 48049AED,Koenka  Oriana                ,43244919,1
 17E87AA0,Aguggiaro jacobo Manuel       ,94408592,1
