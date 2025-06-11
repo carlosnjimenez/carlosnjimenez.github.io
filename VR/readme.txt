@@ -1,3 +1,18 @@
+B9A03000,Juan Luis Baez                ,41412937,4
+17F53760,Daveloose Lionel              ,28088212,4
+17E84AE0,Lupiano Fabrizio              ,41205813,1
+17E85200,Tuzzio Lautaro                ,47516786,1
+17E87BC0,Linares Juan Pablo            ,47882056,1
+17E87A40,Doormann Marcos Fabian        ,47554353,1
+17E84AC0,Pagani Agustina               ,41099538,1
+17E86BE0,Derfler Axel Valentin         ,47167192,1
+17E85260,Olivera Juan Bautista         ,42809253,1
+17F531A0,Perez Fabrizio                ,47434679,4
+17F53180,Berto Juan Ignacio            ,47836568,4
+17F531C0,Cohene Nahuel                 ,48031777,4
+17F53220,Rojar Uriel                   ,47860134,4
+444037E0,Kaznadzei Lucas               ,47685402,4
+443FDC60,Beltran Emanuel               ,47070980,4
 17E85360,Agustin Uriel Rostan          ,48039161,3
 17E84B40,Tobias Lautaro Carthy         ,47558666,3
 17E85320,Kevin Ezequiel  Viera         ,47496301,3
