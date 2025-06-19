@@ -1,6 +1,8 @@
 17E86520,Riesgo  Sebastian Edgardo     ,37751957,4
+17F53480,Rusatti  Leonardo Ariel       ,29696876,4
 7CD9A770,Rusatti  Leonardo Ariel       ,29696876,4
 17F539A0,Fuertes  Graciela Salome      ,18401294,4
+17F53300,Nasello  Pablo Oscar          ,23835677,4
 94F60762,Nasello  Pablo Oscar          ,23835677,4
 17F539C0,Menghi Thiago                 ,44448722,4
 17F567E0,Moriconi  Mariano Miguel      ,33443810,4
