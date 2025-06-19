@@ -1,3 +1,11 @@
+17E84940,Gorriti  Maria Angela         ,26274227,1
+48049AED,Koenka  Oriana                ,43244919,1
+17E849A0,Pla Nahuel                    ,46571911,1
+17F53180,Berto Juan Ignacio            ,47836568,4
+17F53220,Rojar Uriel                   ,47860134,4
+17E87A00,Lautaro Agustin Bernasconi    ,47636251,1
+17E85340,Botticelli  Marcelo Fabian    ,17557393,3
+17E86200,Cardenes Federico Martin      ,42194460,1
 B9A03000,Juan Luis Baez                ,41412937,4
 17F53760,Daveloose Lionel              ,28088212,4
 17E84AE0,Lupiano Fabrizio              ,41205813,1
@@ -553,7 +561,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 2E0ED39D,Iribas  Ezequiel Miguel       ,35427544,1
 2E0ED4ED,Guzzetti  Luciano Sebastian   ,38168651,1
 2E0ED80D,Villanueva Hernan Ignacio     ,24069036,1
-2E0FEAFD,Gorriti  Maria Angela         ,26274227,1
+17E84940,Gorriti  Maria Angela         ,26274227,1
 2E106EFD,Francisco Alejandro Carlos    ,32130296,1
 2E11830D,Gomez Palenzona Ramiro        ,41172531,1
 17E869A0,Szysz  Ivan                   ,33037273,1
