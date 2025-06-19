@@ -1,3 +1,16 @@
+17E86520,Riesgo  Sebastian Edgardo     ,37751957,4
+7CD9A770,Rusatti  Leonardo Ariel       ,29696876,4
+17F539A0,Fuertes  Graciela Salome      ,18401294,4
+94F60762,Nasello  Pablo Oscar          ,23835677,4
+17F539C0,Menghi Thiago                 ,44448722,4
+17F567E0,Moriconi  Mariano Miguel      ,33443810,4
+17F52140,Capua  Antonio Jesus          ,26465656,4
+17E85340,Botticelli  Marcelo Fabian    ,17557393,3
+20B73314,Curto  Claudia Noemi          ,17665028,3
+17E866C0,Morales Lugo Hely Alberto     ,95869718,1
+17E86BC0,Ippolito  Marcelo Franco      ,39560009,1
+17E87A00,Lautaro Agustin Bernasconi    ,47636251,1
+480A21DD,Monteagudo  Maria Fernanda    ,29459075,1
 17F567E0,Moriconi  Mariano Miguel      ,33443810,4
 17E84940,Gorriti  Maria Angela         ,26274227,1
 48049AED,Koenka  Oriana                ,43244919,1
@@ -94,7 +107,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 17E869E0,Diaz Camila Florencia	       ,41898184,1
 17E868A0,Gasser Mariana	               ,27862871,1
 17E86900,Fernandez Rocio Belen	       ,43311459,1
-17E85140,Ivanissevich, Mathias	       ,39436137,1
+17E85140,Ivanissevich  Mathias	       ,39436137,1
 17E851A0,Dagger Velazco Alba           ,95991827,1
 17F56780,Franco Esteban Neoren	       ,44241147,4
 36091E20,Saida Febres                  ,00021568,4
@@ -620,7 +633,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 3E50BA29,Tatiana Andrea Rozo Manrique  ,10224402,1
 3E5EDB49,Porras Mahecha Diego          ,12345674,1
 3E5F57A9,Ramirez Marcelo               ,06098532,1
-3E661599,Jeff Straub (visita)          ,Z001ZUKJ,1
+3E661599,Jeff Straub                   ,Z001ZUKJ,1
 3E6A62A9,Oubina Paula Carina           ,28861561,1
 3E6CC369,Amitha                        ,11111111,1
 443E3880,Cavicchia Daniel              ,38675542,4
@@ -929,7 +942,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 93D6CE2A,Gimelli  Maria Damiana        ,22548068,1
 94E21FE2,De Los Rios Salamanca Antonio ,94835315,1
 94E53EB2,Cavagnino  Maria De Los Angele,29039685,1
-94E619E2,Scott Rogers (visita)         ,Z0022C2C,1
+94E619E2,Scott Rogers                  ,Z0022C2C,1
 94E7FA82,Acebo  Christian Alejandro    ,22471044,1
 94F55C52,Ravier  Maria Eugenia         ,26196141,4
 94F60762,Nasello  Pablo Oscar          ,23835677,4
