@@ -1,3 +1,5 @@
+17E84B60,Muñoz Rodrigo Hernan          ,27281311,1
+17E84B00,Blanco Guillent Jose Angel    ,92213644,1
 17E86520,Riesgo  Sebastian Edgardo     ,37751957,4
 17F53480,Rusatti  Leonardo Ariel       ,29696876,4
 7CD9A770,Rusatti  Leonardo Ariel       ,29696876,4
