@@ -10,7 +10,7 @@
 17F567E0,Moriconi  Mariano Miguel      ,33443810,4
 17F52140,Capua  Antonio Jesus          ,26465656,4
 17E85340,Botticelli  Marcelo Fabian    ,17557393,3
-20B73314,Curto  Claudia Noemi          ,17665028,3
+17E851E0,Curto  Claudia Noemi          ,17665028,3
 17E866C0,Morales Lugo Hely Alberto     ,95869718,1
 17E86BC0,Ippolito  Marcelo Franco      ,39560009,1
 17E87A00,Lautaro Agustin Bernasconi    ,47636251,1
