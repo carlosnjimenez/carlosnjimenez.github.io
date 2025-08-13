@@ -1,3 +1,15 @@
+B98D0880,Hraste Cristian               ,32267144,1
+17E86620,Cano Thomas Ezequiel          ,44686191,1
+B9A03240,Mallofre Matias               ,40255758,5
+B9A031E0,Frumento Leonel               ,33837490,5
+B9A03120,Mateo Dal Molin Cruciani      ,43366903,4
+B9A031C0,Franco Barral                 ,47571545,4
+B9A03160,Rubens Junio Carvalho Da Silva,95985482,4
+B9A03200,Nicolas Daniel Incicco        ,41891726,4
+B9A03180,Thamires Marques Ribeiro      ,94290528,4
+B9A030E0,Luciano Bucchieri             ,46024896,4
+B98D1DC0,Olagaray Marcos               ,24080197,1
+B9A03080,Stepaniuk Mara Belen          ,41509643,4
 B9A030C0,Correa Amarilla Gonzalo       ,41672220,5
 B98D0800,Garro Jimenez Malena          ,47005463,1
 B9A017C0,Broemmel Pedro                ,45580330,4
