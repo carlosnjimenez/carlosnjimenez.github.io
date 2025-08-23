@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Procesar Imagen B/N</title>
+<style>
+body { text-align:center; font-family:Arial; margin:40px; }
+canvas { border:1px solid #ccc; margin-top:20px; }
+</style>
+</head>
+<body>
+<h2>Imagen enviada desde Apps Script</h2>
+<canvas id="canvas"></canvas>
+
+<script>
+window.addEventListener("message", (event) => {
+  const base64 = event.data.base64;
+  if(!base64) return;
+
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.getElementById("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    // Convertir a blanco y negro
+    const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    for(let i=0;i<data.data.length;i+=4){
+      const avg = (data.data[i]+data.data[i+1]+data.data[i+2])/3;
+      data.data[i] = data.data[i+1] = data.data[i+2] = avg;
+    }
+    ctx.putImageData(data,0,0);
+
+    // Enviar automáticamente al Web App de Apps Script
+    const processedDataURL = canvas.toDataURL("image/png");
+    const SCRIPT_URL = "https://script.google.com/macros/s/TU_ID_DE_DEPLOY/exec"; // reemplazar con tu Web App URL
+
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ base64: processedDataURL })
+    })
+    .then(res => res.text())
+    .then(url => {
+      console.log("Imagen guardada en Drive:", url);
+      alert("Imagen guardada en Drive: " + url);
+    })
+    .catch(err => console.error("Error al guardar:", err));
+  };
+  img.src = base64;
+});
+</script>
+</body>
+</html>
