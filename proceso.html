@@ -33,21 +33,9 @@ window.addEventListener("message", (event) => {
     }
     ctx.putImageData(data,0,0);
 
-    // Enviar automáticamente al Web App de Apps Script
+    // Enviar la imagen procesada de vuelta a Apps Script
     const processedDataURL = canvas.toDataURL("image/png");
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwQtZbhH47lqf2QhkzEsIwV598bkX7Si_FImabyR9nrM_AUqSK_nW8phJ5cSiN98lZNKw/exec"; // reemplazar con tu Web App URL
-
-    fetch(SCRIPT_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ base64: processedDataURL })
-    })
-    .then(res => res.text())
-    .then(url => {
-      console.log("Imagen guardada en Drive:", url);
-      alert("Imagen guardada en Drive: " + url);
-    })
-    .catch(err => console.error("Error al guardar:", err));
+    window.parent.postMessage({ base64: processedDataURL }, "*");
   };
   img.src = base64;
 });
