@@ -1,3 +1,14 @@
+B9A03EC0,Prado Martin Ezequiel         ,33890525,4
+B98D17C0,Monteverde Sofia              ,45870447,1
+B98D0860,Parzianello Yamila Dafne      ,35405741,1
+B98D1820,Der Meguerditchian PAblo      ,14463449,1
+2E0ECCED,Paz Aldo Marcelo              ,17616768,3
+17E85B60,Oller Andres                  ,30885799,1
+17F53780,Delgado Zerpa Jose Enrique    ,95725515,4
+B98D1E60,Prueba GBS                    ,27599504,1
+4854FDF5,Rodrigo Casarino              ,21730381,1
+17F578C0,Torron Maria Celeste          ,43775918,4
+B98D1800,Mendoza Diego Jorge           ,27151123,3
 B98D0880,Hraste Cristian               ,32267144,1
 17E86620,Cano Thomas Ezequiel          ,44686191,1
 B9A03240,Mallofre Matias               ,40255758,5
