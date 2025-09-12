@@ -1,3 +1,6 @@
+B9A045A0,Fortuna Gaston Ezequiel       ,40684159,5
+B9A04540,Vigevani Celoira Candelaria   ,43994040,4
+B9A04580,Mondino Giuliana              ,38358694,5
 B9A03EC0,Prado Martin Ezequiel         ,33890525,4
 B98D17C0,Monteverde Sofia              ,45870447,1
 B98D0860,Parzianello Yamila Dafne      ,35405741,1
