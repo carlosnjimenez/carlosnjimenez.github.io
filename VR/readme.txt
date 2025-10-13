@@ -713,6 +713,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 4803B97D,Nunez Facundo                 ,42589405,1
 17E851C0,Tejeira  Matias Adrian        ,40230726,1
 4804AA9D,Frajlich Romano Matias        ,40732105,1
+B98D0D80,Frajlich Romano Matias        ,40732105,1
 4804E3ED,Schin  Miriam Elisa           ,16876484,1
 17E86660,Maiz Brian Hernan             ,09315890,3
 4804F6ED,Sarlette Noah                 ,40749713,1
@@ -949,7 +950,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 8F806C32,Lebele  Hugo Marcelo          ,23326028,1
 8F808C02,Alderete Cossio Michelle Vanes,34321071,1
 8F8096D2,Meduri  Eduardo Genaro        ,14819757,1
-8F80A892,Guitera  Gustavo Alberto      ,24122242,1
+B98D1900,Guitera  Gustavo Alberto      ,24122242,1
 8F80CD72,Vetrisano  Pablo              ,26315694,1
 8F810AC2,Antonini Zapata Armando Alexan,95876350,1
 8F813F52,Seguridad R8                  ,03411460,5
@@ -1063,8 +1064,8 @@ D6005EC0,Gorchs Eduardo Andres         ,20987848,1
 D6006000,Duarte Barreto Jesika Maria   ,19054213,3
 D6006020,Suchowolski  Jonathan Uriel   ,37040068,1
 D9161042,Bernaldez  Constanza Isabel   ,27084726,3
-DED7B8F2,Gonzalez  Nelida Gisela       ,32961463,4
-B98D0740,Gagliardi  Gustavo Orlando    ,21464853,3
+DED7B8F2,Gonzalez Nelida Gisela        ,32961463,4
+B98D0740,Gagliardi Gustavo Orlando     ,21464853,3
 DED8B892,Oca Delgado Brinelly Alejandra,96005887,1
 DED8BC02,Elias  Maria Fernanda         ,25788741,3
 DED98C32,Colombo  Hector Pablo         ,17778467,1
