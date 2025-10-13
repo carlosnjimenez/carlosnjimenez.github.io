@@ -1,3 +1,8 @@
+2E0EB48D,Rodriguez Capello Antonio Seba,26859169,1
+09D0301E,Rodriguez Capello Antonio Seba,26859169,1
+B9A03220,Taboas, Tiziano Matias        ,47024603,5
+17E84EC0,Larragueta  Maria Belen       ,38614594,1
+17E87BA0,Malagrino Bautista            ,45684976,1
 17E86BA0,Chazarreta  Alberto Eduardo   ,28439162,1
 480A21DD,Monteagudo  Maria Fernanda    ,29459075,1
 B98D31C0,Monteagudo  Maria Fernanda    ,29459075,1
@@ -59,7 +64,7 @@ B98D3240,Takaichi Agustina Sol         ,45612976,1
 480A21DD,Monteagudo  Maria Fernanda    ,29459075,1
 17F567E0,Moriconi  Mariano Miguel      ,33443810,4
 17E84940,Gorriti  Maria Angela         ,26274227,1
-48049AED,Koenka  Oriana                ,43244919,1
+B98D08C0,Koenka  Oriana                ,43244919,1
 17E849A0,Pla Nahuel                    ,46571911,1
 17F53180,Berto Juan Ignacio            ,47836568,4
 17F53220,Rojar Uriel                   ,47860134,4
@@ -458,7 +463,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 26DECD1D,Tammaro  Ignacio Ariel        ,39625442,1
 26DEDA7D,Hernandez  Maximiliano        ,27407861,1
 26DEEAED,Mazzitelli  Marcelo Antonio   ,21856638,1
-26DF1AAD,Navarro Sofia                 ,41952629,1
+4809EECD,Navarro Sofia                 ,41952629,1
 26E0223D,Morales Gabriel Alejandro     ,30813830,3
 26E0A30D,Anello Stringa Ezequiel Martin,35645389,1
 26E1789D,Cirulli  Rosana Edith         ,16809010,1
@@ -485,10 +490,10 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 26E83F2D,Pena Mendoza Drayant Moises   ,95856289,1
 26E87BDD,Del Valle Amaya  Aldana       ,36991955,1
 26E88CDD,Gutierrez Camacho Adriana Marg,19100067,1
-26E8949D,Sievers Nadine                ,40541661,3
+17E85E00,Sievers Nadine                ,40541661,3
 26E8DD5D,Gago Daniel                   ,22099194,1
 26E90F6D,Marteau  Gaston               ,27170234,1
-26E9369D,Papini Sofia Iara             ,43020150,1
+B9A03EE0,Papini Sofia Iara             ,43020150,1
 26E97D5D,Bolles  Florencia Jazmin      ,35657842,1
 26E9A4FD,Cafiero  Miguel Ignacio       ,17083562,3
 26E9EFBD,Bernaldez  Constanza Isabel   ,27084726,3
@@ -517,7 +522,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 2E0D90BD,Martin  Flavia Marina         ,27578810,3
 2E0D97FD,Petronacci  Ivan              ,41263619,1
 2E0D9F8D,Urquiza  Maria Berta          ,5729571X,1
-2E0DAACD,Luna  Daiana                  ,33838975,1
+B98D0720,Luna  Daiana                  ,33838975,1
 2E0DADAD,Zorzenon Ricardo Juan         ,17279007,1
 2E0DB42D,Donofrio  Victoria Rosa       ,39115898,1
 2E0DB71D,Franco Bosetti                ,43448590,1
@@ -571,12 +576,12 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 2E0E7CED,Pedrazzo  Juan Mauricio       ,26210361,1
 2E0E7DBD,Van Muylem Sabine             ,30330316,1
 2E0E7EAD,Guerra Zambrano Yurbelis Grego,19104017,1
-2E0E7EED,Ibanez Federico               ,33192489,1
+B98D18E0,Ibanez Federico               ,33192489,1
 2E0E86AD,Perez  Javier Hugo            ,22848953,1
 2E0E877D,Canteros  Stefania Giselle    ,36615222,1
-2E0E886D,Javurek Candela               ,44727700,1
+17F57100,Javurek Candela               ,44727700,1
 2E0E8A7D,Crotti Ezequiel               ,31859661,1
-2E0E8D7D,Etcheverry Tomas              ,43030588,1
+B9A04560,Etcheverry Tomas              ,43030588,1
 2E0E8E1D,Trelles  Juan Manuel          ,26122954,1
 2E0E910D,Rosello Guillermo             ,00007759,1
 2E0E92CD,Tambussi Damian Agustin       ,30850664,1
@@ -711,7 +716,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 48034A2D,Catenaccio Florencia          ,45813808,1
 48039DED,Baez  Julieta Micaela         ,40308339,1
 4803B97D,Nunez Facundo                 ,42589405,1
-17E851C0,Tejeira  Matias Adrian        ,40230726,1
+B98D0760,Tejeira  Matias Adrian        ,40230726,1
 4804AA9D,Frajlich Romano Matias        ,40732105,1
 B98D0D80,Frajlich Romano Matias        ,40732105,1
 4804E3ED,Schin  Miriam Elisa           ,16876484,1
@@ -739,7 +744,7 @@ B98D0D80,Frajlich Romano Matias        ,40732105,1
 480661AD,Tagliabue Aguero Bruno Rodolfo,40879985,1
 480677ED,Terraza  Carla Vanesa         ,27649426,3
 48067E8D,Blanco Jose Luis              ,16204384,1
-480691ED,Ortega  Jorge Luis            ,27330963,1
+B98D1880,Ortega  Jorge Luis            ,27330963,1
 48069B8D,Santiago Maria Laura          ,30601069,1
 4806B52D,Imbrogno Silvina              ,20515268,1
 4806CEAD,Rojas Natalie Melisa          ,36786205,1
@@ -848,11 +853,11 @@ B98D0D80,Frajlich Romano Matias        ,40732105,1
 4823473D,Colombo  Catalina             ,44456253,1
 48237B8D,Gonzalez  Matias              ,40545884,1
 482381CD,Di Sanzo  Osvaldo             ,17862131,1
-48238BAD,Slikas  Paola Liza            ,23533685,1
+B98CFF40,Slikas  Paola Liza            ,23533685,1
 4823B2ED,Santagada  Melina Noelia      ,34641359,1
 4824517D,Gorenberg  Andres Gregorio    ,18511534,1
 4824746D,Giwisch  Monica Liliana       ,21456190,1
-4824E5DD,Topelberg  Miguel             ,26157380,1
+B98D1840,Topelberg  Miguel             ,26157380,1
 4824F11D,Brandan  Tamara Leonela       ,34018818,1
 4825373D,Rogel  Maria Belen            ,34185594,1
 48256E8D,Salas  Paula Victoria         ,27659887,1
@@ -881,7 +886,7 @@ B98D0D80,Frajlich Romano Matias        ,40732105,1
 5E5ADA92,Den Dauw Alicia Beatriz       ,22454474,4
 5E5B32A2,De Paola  Aldana Lucila       ,39433479,1
 5E5B48C2,Guerra  Iara Aylen            ,43171563,1
-5E6252E2,Chazarreta  Alberto Eduardo   ,28439162,1
+17E86BA0,Chazarreta  Alberto Eduardo   ,28439162,1
 5E62F312,Karim Del Aguila Ugaz         ,07881931,1
 5E702C52,Mendez  Jessica               ,96099255,1
 5E708042,Jenny Carolina Torres Aya     ,11111111,1
@@ -891,7 +896,7 @@ B98D0D80,Frajlich Romano Matias        ,40732105,1
 5E715262,Scavarda Basaldua Maria Paz de,30973631,3
 618FA5F6,Barrero  Mirta Susana         ,12758590,3
 61CFD4D6,Gagliano Josefina Graciela    ,16134255,1
-62F9CAFE,Canavide  Maria Sofia         ,34405985,1
+B98D1E60,Canavide  Maria Sofia         ,34405985,1
 648BE6E0,Colombo  Hector Pablo         ,17778467,1
 648ED2B0,Di Bernardo  Diego Rodolfo    ,21850067,1
 69D686EE,Ricardo Sousa                 ,12345678,5
