@@ -1127,7 +1127,7 @@ FCDFC97A,Gonzalez Abarca Felix Jose    ,95638011,1
 FCDFD93A,Ferrari  Guillermo Daniel     ,16895225,3
 FCE010EA,Fuhr  Mauricio Luis           ,37975347,1
 FD02D310,Ricardo Sousa                 ,12345678,5
-C4FDC810,Reset Contador                ,XXXXXXXX,0
+C4FDC810,Reset Contador 01             ,XXXXXXXX,0
 2CC59AA2,Reset Contador                ,XXXXXXXX,0
 7A8EACEB,Test Card 5                   ,XXXXXXXX,5
 4854FDF5,Test Card 8                   ,XXXXXXXX,5
