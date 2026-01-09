@@ -26,7 +26,7 @@ B9A02F20,Ortiz Alcaraz  Elias Samuel   ,94506628,4
 B9A05440,Almada  Maria Florencia       ,26544338,4
 B98D17A0,Contreras  Ivan Emir          ,40060818,1
 B9A02F60,Fortuna  Gaston Ezequiel      ,40684159,4
-B9A04540,Vigevani Celoira, Candelaria	 ,43994040,4
+B9A04540,Vigevani Celoira, Candelaria  ,43994040,4
 2E0EB48D,Rodriguez Capello Antonio Seba,26859169,1
 09D0301E,Rodriguez Capello Antonio Seba,26859169,1
 B9A03220,Taboas  Tiziano Matias        ,47024603,5
