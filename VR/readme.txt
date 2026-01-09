@@ -1,3 +1,32 @@
+B9A02D80,Renata Martina Lo Calzo	     ,43176192,4
+B98D2560,Mercedes Letterio	           ,41704131,1
+B9A03F40,Randisi Andrea Carlota	       ,33458363,4
+B98D00E0,Gudalupe Bolasell	           ,46111912,1
+B98D2480,Beker, Federico Ezequiel	     ,38586447,1
+B98D1200,Magdalena Itziar Cullen De Erq,44675255,1
+B9A02EA0,Agustina Vazquez	             ,45822538,4
+B9A017A0,Saenz, Nazarena	             ,40228462,4
+17E85300,Garcia, Julio Enrique	       ,26894515,3
+17F578A0,Moran, Cecilia Agustina	     ,41893778,5
+B98CD5A0,Focaraccio, Rocco Pablo	     ,43629858,1
+B9A03F60,Fariello, Maria Agustina	     ,39749226,5
+B9A03F00,Escobar Christian Andres	     ,63267420,4
+B98D22A0,Valentin Tafura	             ,35874479,1
+B98D2240,Lara Rodrigues	               ,44482978,1
+B98D2260,Sergio Eduardo Lopez	         ,24362326,1
+83046E20,Guerra, Marcos Andres	       ,34625118,5
+B98D3260,Maria Pia Maggi               ,23782092,1
+83046D60,Mantuano, Melina Aylen	       ,42811665,4
+B98D1A00,Sofia Capparelli	             ,45013721,1
+B98D1980,Maria Trinidad Petitti	       ,45040632,1
+B98D19C0,Hepper Valentin	             ,46342563,1
+B98D32C0,Molinari Juan Cruz	           ,42023682,1
+22F20400,Rivas Karlic, Ezequiel Agustin,31409343,5
+B9A02F20,Ortiz Alcaraz, Elias Samuel	 ,94506628,4
+B9A05440,Almada, Maria Florencia	     ,26544338,4
+B98D17A0,Contreras, Ivan Emir	         ,40060818,1
+B9A02F60,Fortuna, Gaston Ezequiel	     ,40684159,4
+B9A04540,Vigevani Celoira, Candelaria	 ,43994040,4
 2E0EB48D,Rodriguez Capello Antonio Seba,26859169,1
 09D0301E,Rodriguez Capello Antonio Seba,26859169,1
 B9A03220,Taboas, Tiziano Matias        ,47024603,5
