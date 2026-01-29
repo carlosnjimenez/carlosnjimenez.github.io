@@ -8,6 +8,7 @@ B98D1200,Magdalena Itziar Cullen De Erq,44675255,1
 B9A02EA0,Agustina Vazquez              ,45822538,4
 B9A017A0,Saenz  Nazarena               ,40228462,4
 17E85300,Garcia  Julio Enrique         ,26894515,3
+B98D1E00,Gerra Ana Ines                ,37934248,1
 17F578A0,Moran  Cecilia Agustina       ,41893778,5
 B98CD5A0,Focaraccio  Rocco Pablo       ,43629858,1
 B9A03F60,Fariello  Maria Agustina      ,39749226,5
