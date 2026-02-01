@@ -1,4 +1,19 @@
 B98D1E00,Gerra Ana Ines                ,37934248,1
+B9A044E0,Gonzalez David Jonathan       ,Z0058JTV,4
+B9A02D80,Renata Martina Lo Calzo       ,Z00581MD,4
+B9A03F40,Randisi Andrea Carlota        ,Z0057N7A,4
+B9A02EA0,Agustina Vazquez              ,Z0057UCK,4
+B9A017A0,Saenz Nazarena                ,Z0057RNP,4
+B9A03F00,Escobar Christian Andres      ,Z004P03H,4
+83046D60,Mantuano Melina Aylen         ,Z005796C,4
+B9A02F20,Ortiz Alcaraz Elias Samuel    ,Z0056W4A,4
+B9A05440,Almada Maria Florencia        ,Z0056U6V,4
+B9A02F60,Fortuna Gaston Ezequiel       ,Z0056MKU,4
+B9A04180,Mallofre Matias               ,Z00562HT,4
+B9A02EC0,Frumento Leonel               ,Z00562KY,4
+B9A02EE0,Recuero Diego Enrique         ,Z0000000,4
+B9A02E20,Godoy Sandra Karina           ,Z0000000,1
+94FF4F42,Cano Claudio Ramiro           ,Z0036D9R,4
 B9A02D80,Renata Martina Lo Calzo       ,43176192,4
 B98D2560,Mercedes Letterio             ,41704131,1
 B9A03F40,Randisi Andrea Carlota        ,33458363,4
