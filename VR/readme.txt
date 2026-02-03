@@ -13,7 +13,7 @@ B9A04180,Mallofre Matias               ,Z00562HT,4
 B9A02EC0,Frumento Leonel               ,Z00562KY,4
 B9A02EE0,Recuero Diego Enrique         ,Z0000000,4
 B9A02E20,Godoy Sandra Karina           ,Z0000000,1
-94FF4F42,Cano Claudio Ramiro           ,Z0036D9R,4
+17F53720,Cano Claudio Ramiro           ,Z0036D9R,4
 B9A02D80,Renata Martina Lo Calzo       ,43176192,4
 B98D2560,Mercedes Letterio             ,41704131,1
 B9A03F40,Randisi Andrea Carlota        ,33458363,4
