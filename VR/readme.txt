@@ -1,5 +1,14 @@
 17E87AE0,Moreno  Estela Nancy          ,23552947,1
+17E87AE0,Moreno  Estela Nancy          ,23552947,1
+B9A02DA0,Kevin Pena Lara               ,95823051,5
+B98D35E0,Larrosa Esteban               ,Z0058BAM,1
+B9A02D80,Renata Martina Lo Calzo       ,Z00581MD,4
+B9A02E80,Alu Carchack Manuel           ,44937449,5
+B9A04180,Mallofre Matias               ,Z00562HT,4
+17F578A0,Moran Cecilia Agustina        ,41893778,5
+B98CFF40,Slikas  Paola Liza            ,23533685,1
 B98D24A0,Canavide  Maria Lucila        ,29121239,1
+B98D11A0,Bonelli  Roberto Eugenio      ,16930805,1
 94E7FA82,Acebo  Christian Alejandro    ,22471044,1
 B98D1E00,Gerra Ana Ines                ,37934248,1
 B9A044E0,Gonzalez David Jonathan       ,Z0058JTV,4
@@ -27,7 +36,7 @@ B9A02EA0,Agustina Vazquez              ,45822538,4
 B9A017A0,Saenz  Nazarena               ,40228462,4
 17E85300,Garcia  Julio Enrique         ,26894515,3
 B98D1E00,Gerra Ana Ines                ,37934248,1
-17F578A0,Moran  Cecilia Agustina       ,41893778,5
+17F578A0,Moran Cecilia Agustina        ,41893778,5
 B98CD5A0,Focaraccio  Rocco Pablo       ,43629858,1
 B9A03F60,Fariello  Maria Agustina      ,39749226,5
 B9A03F00,Escobar Christian Andres      ,63267420,4
@@ -238,9 +247,9 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 09D1E27E,Favio Guerra                  ,05120164,1
 09D1F2CE,Kuenzer  Enrique Jose         ,17751354,1
 0A2278BE,Raus  Ricardo Esteban         ,21137247,1
-0A22A4FE,Iriart  Tomas                 ,35364541,1
+B98D1920,Iriart  Tomas                 ,35364541,1
 0A23CDDE,Figueroa  Diego Gustavo       ,28799486,1
-0A25B2EE,Bustos  Agustin Federico      ,33421423,1
+B98D1760,Bustos  Agustin Federico      ,33421423,1
 0A269F5E,Bonomi  Pablo Federico        ,37688282,1
 0A26AA4E,Gonzalez Cesar Antonio        ,00021035,1
 0A26EA3E,Camino Maria Noelia           ,31937360,1
@@ -259,7 +268,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 17E84E20,Carlos Ignacio                ,43081618,1
 17E84E60,Nicolas Ametlla               ,31410071,1
 17E84E80,Della Torre Bautista          ,42470466,1
-17E84F00,Ovalles Lauribeth Graciela    ,95942244,1
+17E86460,Ovalles Lauribeth Graciela    ,95942244,1
 17E84F20,Arellano Agostina             ,43243499,1
 17E84F40,Riesgo  Sebastian Edgardo     ,37751957,1
 17E84F60,Grosso Basto Matias Pablo     ,39436347,1
@@ -429,7 +438,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 18060260,Facundo Gestal                ,34353531,1
 180602C0,Duarte Baracat Lucas          ,41334804,1
 18060300,Fernandez Munich Ariana       ,41672461,1
-18060320, Jessica               ,96099255,1
+18060320,Jessica                       ,96099255,1
 18060340,Marziali  Nicolas Ariel       ,34250218,1
 18060360,Pociello Argerich Javier      ,32848801,1
 180603A0,Lamana  Georgina Giselle      ,34343897,3
@@ -477,7 +486,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 18064760,Kolman  Damian Javier         ,29959943,1
 18064780,Konig  Andres Roberto         ,34743923,1
 180647A0,Fernandez Camila              ,41823099,1
-18064860,Petrocelli  Ignacio           ,41665759,1
+B98D1780,Petrocelli  Ignacio           ,41665759,1
 18064880,Terraza  Carla Vanesa         ,27649426,3
 180648C0,Barbarulo  Juan Pablo         ,32244534,1
 180648E0,Fernandez Ignacio             ,31529601,3
@@ -562,7 +571,7 @@ B9A03EE0,Papini Sofia Iara             ,43020150,1
 26F5D98D,Rombola  Bruno Ignacio        ,36930078,1
 26F6211D,Minutella  Ruben Dario        ,26622315,1
 26F678DD,Senra  Marcelo Fabian         ,22234293,1
-2B9D8040,Pantoja Caro Salvador Felix   ,93065090,1
+B98D07A0,Pantoja Caro Salvador Felix   ,93065090,1
 2E0D761D,Guillermo Ian Silva           ,33098843,5
 2E0D768D,Mariano Damian Langellotti    ,02623464,3
 2E0D769D,Araya Ioannu Alejandra        ,38891014,1
@@ -650,7 +659,7 @@ B9A04560,Etcheverry Tomas              ,43030588,1
 2E0EAB0D,Celeste Gomez                 ,42625530,1
 2E0EABDD,Sessa Brenda                  ,30138126,1
 2E0EABED,Lopez  Maria Sol              ,43302521,1
-2E0EAE4D,Vera  Azucena Fabiana         ,33725135,1
+B98D24E0,Vera  Azucena Fabiana         ,33725135,1
 2E0EB00D,Ullua Ignacio                 ,36554757,1
 2E0EB13D,Der Meguerditchian Pablo      ,14463449,1
 2E0EB19D,Lamana  Georgina Giselle      ,34343897,3
@@ -778,7 +787,7 @@ B98D0D80,Frajlich Romano Matias        ,40732105,1
 48053ADD,De Luca  Mariano Daniel       ,30131839,1
 4805A4ED,Fernandez Nespral Vicente     ,13355508,3
 4805C4AD,Arriguria Cuadra  Ana Clara   ,33209308,1
-4805CA9D,Ranzenhofer  Jose Maria       ,25251825,1
+B98D0100,Ranzenhofer  Jose Maria       ,25251825,1
 4805E42D,Cordero Campos Yumarbenith de ,95754152,1
 4805E48D,Beltrame Gasser Paola         ,26152544,1
 4805FEAD,Amundarray Maria Eugenia      ,41706890,3
@@ -873,7 +882,7 @@ B98D1880,Ortega  Jorge Luis            ,27330963,1
 48096A6D,Krebs  Erik                   ,38625124,1
 48096BBD,Barrientos Daniel             ,34384061,3
 48096CCD,Hahn  Lautaro                 ,44714573,1
-4809898D,Di Salvo  Lucia               ,44486370,1
+B98CB800,Di Salvo  Lucia               ,44486370,1
 48098C2D,Remis Luisa                   ,37497911,1
 4809914D,Errecaborde  Tomas            ,40734520,1
 4809921D,Martinez Juan Manuel          ,24801083,1
@@ -1106,7 +1115,7 @@ D6003700,Dyfort  Ariel Jorge           ,20762127,1
 D6003740,Rodriguez  Rodolfo Rolando    ,30176575,1
 D6003780,Bertelli Ruani Clara          ,39244671,1
 D6003800,Castelloni  Ornella           ,36929886,1
-D6003EE0,Salituri  Juan Ignacio        ,32067826,1
+B98D11E0,Salituri  Juan Ignacio        ,32067826,1
 D6004300,Perez Torres Marlis           ,95959825,1
 D6004340,Gatti  Cecilia                ,43324619,4
 D6004380,Magliocco Alvarez Giuseppe    ,95859554,1
@@ -1189,6 +1198,7 @@ C4FDC810,Reset Contador 01             ,XXXXXXXX,0
 9D1130E,Melniczuk  Patricia Carmen    ,18462276,1
 9D1E27E,Favio Guerra                  ,05120164,1
 9D1F2CE,Kuenzer  Enrique Jose         ,17751354,1
+9D0301E,Rodriguez Capello Antonio Seba,26859169,1
 A2278BE,Raus  Ricardo Esteban         ,21137247,1
 A22A4FE,Iriart  Tomas                 ,35364541,1
 A23CDDE,Figueroa  Diego Gustavo       ,28799486,1
