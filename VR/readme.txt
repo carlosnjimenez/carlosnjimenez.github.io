@@ -1,5 +1,7 @@
 17E87AE0,Moreno  Estela Nancy          ,23552947,1
 17E87AE0,Moreno  Estela Nancy          ,23552947,1
+B9A047A0,Alan Gabriel Castro           ,38125796,4
+B9A04780,Vanden Ryn Roxana             ,32172549,4
 B9A02DA0,Kevin Pena Lara               ,95823051,5
 B98D35E0,Larrosa Esteban               ,Z0058BAM,1
 B9A02D80,Renata Martina Lo Calzo       ,Z00581MD,4
@@ -314,7 +316,7 @@ B98D1760,Bustos  Agustin Federico      ,33421423,1
 17E85DA0,Lloveras  Diego Gabriel       ,26498331,1
 17E85EC0,Perez Mariano                 ,30414293,1
 17E85EE0,Martinez  Laura Noelia        ,34511373,1
-17E85FE0,Moreno Bolivar Gabriela       ,95911667,1
+B9A032A0,Moreno Bolivar Gabriela       ,95911667,1
 17E86020,Gallara  Pablo Hernan         ,29900706,1
 17E86040,Argarate Maria Lourdes        ,38028951,1
 17E860A0,Berney Pasini Maria Milagros  ,44655906,1
@@ -752,7 +754,7 @@ B98D11A0,Bonelli  Roberto Eugenio      ,16930805,1
 443F8C40,Kollmann  Cristian Alejandro  ,31942537,4
 443F91C0,Alvarez  Maria Luciana        ,31102169,4
 443F9520,Pereyra  Marcela Ines         ,29649839,4
-443F9DA0,Romero Manuela                ,43453683,4
+17F52760,Romero Manuela                ,43453683,4
 443FBDA0,Roldan Kevin                  ,00006570,4
 443FBE40,Jimenez Alan German           ,15468975,3
 443FC4C0,Gaik Santiago Ezequiel        ,46939485,3
