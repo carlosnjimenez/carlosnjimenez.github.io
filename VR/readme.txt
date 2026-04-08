@@ -9,7 +9,7 @@ B9A04120,Falabella Nicolas Agustin     ,43570357,4
 17E85220,Mendia Felipe                 ,44770143,1
 B9A033A0,Alexa Sessrego                ,44998643,4
 B98D1580,Joaquin Idiart                ,46365811,1
-B98D1600,Scotillo Eliana	             ,33443154,1
+B98D1600,Scotillo Eliana               ,33443154,1
 B98D1620,Nicolas Crespi                ,41426163,1
 B98D1720,Luis Adriel Gastaldi          ,39842214,1
 B98D1640,Camila Veronica Garcia        ,46634539,1
