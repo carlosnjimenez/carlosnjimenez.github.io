@@ -1,3 +1,15 @@
+B98D1480,Ruggiero Valentina Mora       ,44486199,1
+B98D1460,Lo+ Julieta                   ,44891704,1
+B98D14C0,Meyerhoff Agustina            ,39560906,1
+B98D14A0,Anderson Godoy Rocio Lastenia ,95997214,1
+B9A040A0,Ortiz Felicitas               ,45235427,4
+B9A03340,Pepe Mariano                  ,44097308,4
+17E877E0,Fraguas Jeremias              ,45202781,1
+B9A04120,Falabella Nicolas Agustin     ,43570357,4
+17E85220,Mendia Felipe                 ,44770143,1
+B9A033A0,Alexa Sessrego                ,44998643,4
+B98D1580,Joaquin Idiart                ,46365811,1
+B98D1600,Scotillo Eliana	             ,33443154,1
 B98D1620,Nicolas Crespi                ,41426163,1
 B98D1720,Luis Adriel Gastaldi          ,39842214,1
 B98D1640,Camila Veronica Garcia        ,46634539,1
@@ -1009,6 +1021,7 @@ B98D1660,Acebo  Christian Alejandro    ,22471044,1
 9D1E27E,Favio Guerra                  ,05120164,1
 9D1F2CE,Kuenzer  Enrique Jose         ,17751354,1
 9D0301E,Rodriguez Capello Antonio Seba,26859169,1
+2E0EB48D,Rodriguez Capello Antonio Seba,26859169,1
 A2278BE,Raus  Ricardo Esteban         ,21137247,1
 A22A4FE,Iriart  Tomas                 ,35364541,1
 A23CDDE,Figueroa  Diego Gustavo       ,28799486,1
