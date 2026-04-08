@@ -184,7 +184,7 @@ B98CFF00,Brito Walter Andres           ,29670051,1
 17F50A80,Varela Villaruel  Santiago    ,45580639,4
 17E853C0,Arin  Micaela Alejandra       ,40611460,1
 4809EECD,Navarro  Sofía                ,36341540,1
-17E86220,Waldman Ignacio               ,26801161,1
+B98D1500,Waldman Ignacio               ,26801161,1
 17F536A0,Rojas Estaban Jose            ,22078254,4
 A6A7D040,Rigo-Righi Joaquin            ,15991523,4
 180643E0,Solari  Agustin               ,42206830,1
@@ -790,7 +790,7 @@ B98D31C0,Monteagudo  Maria Fernanda    ,29459075,1
 26F1692D,Mirabal de la Puente Alejandro,3699830X,1
 26F6211D,Minutella  Ruben Dario        ,26622315,1
 2E0E512D,Michalowicz  Daniel           ,17103938,1
-FCDDA5EA,Meza  Sergio Alberto          ,26866285,1
+B98D1540,Meza  Sergio Alberto          ,26866285,1
 4808F75D,Mendez  Romina                ,32069185,1
 FD02D310,Ricardo Sousa                 ,12345678,5
 CD8B65FB,Ricardo Sousa                 ,12345678,5
@@ -876,7 +876,7 @@ B9A02E20,Godoy  Sandra Karina          ,30273263,1
 18065700,Giacobini Stergo Estefanía    ,29382322,1
 B98D1E00,Gerra  Ana Ines               ,37934248,1
 480923FD,Geremia  Josue                ,38862892,1
-D6004340,Gatti  Cecilia                ,43324619,4
+17F53840,Gatti  Cecilia                ,43324619,4
 9500F1D2,Gascon Da Silva Miroslava Mari,95901863,1
 180624E0,Gardonio  Federico Carlos     ,43442933,1
 2E0DC65D,Garcia  Luis Maria            ,24514878,1
