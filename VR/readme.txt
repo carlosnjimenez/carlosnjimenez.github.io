@@ -1,7 +1,28 @@
+B98D0C60,Perelmuter Diana              ,46198686,1
+B98D0C80,Sarni Matias Agustin          ,46701217,1
+B9A05300,Allaria Ignacio               ,33646574,5
+B98D13C0,Samalvide Matias              ,43315955,1
+B98D0BA0,Sanchez Matias Alejandro      ,96311086,1
+B98D13A0,Barbero Constanza Emilia      ,37035871,1
+B98D0C00,Jaitzman Matias Roman         ,44728388,1
+17E84B80,Lola Szczepanik               ,45233191,1
+15E1D6FB,Michaela Padrtova             ,63292512,4
+B9A05380,Gonzalez Castillo Nicolas Seba,34830080,4
+18062AE0,Victor Daniel Brito           ,95813095,1
+B9A05400,Lopez Jessica Natalia         ,25906340,4
+B9A05360,Juarez Gustavo Sebastian      ,29866121,4
+B9A053C0,Krayem Gerardo Gaston         ,26117026,4
+B9A03040,Lorena Paola López            ,34977999,5
+17E85240,Aci Kugel Eugenia             ,46109661,1
+B98D00A0,Garrone Juan Marcos           ,44895543,1
+B98D0040,Arteach Tomas Javier          ,45327026,1
+B98D00C0,Britez Santiago Agustin       ,45630864,1
+B9A053E0,Fernandez Noelia Soledad      ,33086768,4
 B98D1480,Ruggiero Valentina Mora       ,44486199,1
-B98D1460,Lo+ Julieta                   ,44891704,1
+B98D1460,Lon Julieta                   ,44891704,1
 B98D14C0,Meyerhoff Agustina            ,39560906,1
 B98D14A0,Anderson Godoy Rocio Lastenia ,95997214,1
+B9A04100,Valente Giuliana              ,43875214,4
 B9A040A0,Ortiz Felicitas               ,45235427,4
 B9A03340,Pepe Mariano                  ,44097308,4
 17E877E0,Fraguas Jeremias              ,45202781,1
