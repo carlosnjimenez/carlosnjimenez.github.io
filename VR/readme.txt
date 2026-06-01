@@ -1,3 +1,22 @@
+B9A05380,Gonzalez Castillo Nicolas Seba,34830080,4
+B9A053C0,Krayem Gerardo Gaston         ,26117026,4
+B98D00A0,Garrone Juan Marcos           ,44895543,1
+B98D00C0,Britez Santiago Agustin       ,45630864,1
+B9A04100,Valente Giuliana              ,43875214,4
+B9A03340,Pepe Mariano                  ,44097308,4
+17E877E0,Fraguas Jeremias              ,45202781,1
+17E85B60,Oller Andres                  ,30885799,1
+B98D1440,Camino María Noelia           ,31937360,1
+B98D0000,Gustavo Leonardo Pavon        ,35160841,3
+B9A05340,Arrieta Valentina             ,46013417,5
+F28646A0,Lorenzo  Pablo Adrian         ,26756625,4
+B98D1520,Spingola  Catalina Camila     ,41133555,1
+B98D1540,Meza  Sergio Alberto          ,26866285,1
+B98D1560,Marteau  Gastón               ,27170234,1
+17E84EC0,Larragueta  Maria Belen       ,38614594,1
+B98D1420,Giron  Martin Alejandro       ,27278822,1
+26E87BDD,Del Valle Amaya  Aldana       ,36991955,1
+4822CD1D,Amico  Sabrina Noelia         ,32884046,1
 B98D0C60,Perelmuter Diana              ,46198686,1
 B98D0C80,Sarni Matias Agustin          ,46701217,1
 B9A05300,Allaria Ignacio               ,33646574,5
