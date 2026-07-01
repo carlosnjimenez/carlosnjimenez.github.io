@@ -1,3 +1,5 @@
+17E85060,Arrieta Valentina             ,46013417,1
+17E86800,Manfredi Gustavo              ,35967770,1
 53D6AE3C,Ana Alvarado                  ,23292717,5
 17F524A0,Aranda Evelyn Rocio           ,39328304,4
 17E86E20,Vargas Roldón Emilio Peter    ,95970810,1
