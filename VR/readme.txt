@@ -1,3 +1,15 @@
+53D6AE3C,Ana Alvarado                  ,23292717,5
+17F524A0,Aranda Evelyn Rocio           ,39328304,4
+17E86E20,Vargas Roldón Emilio Peter    ,95970810,1
+17E86E00,Guffanti Carlos Adriano       ,40956754,1
+17F57660,Acosta Pablo                  ,95270827,1
+B9A03220,Taboas Tiziano Matias         ,47024603,4
+17E849A0,Pla Nahuel                    ,46571911,1
+17E849E0,Senra Alejo                   ,44727251,1
+95010892,Maria Gabriela Gobet          ,16894428,4
+B9A04560,Etcheverry Tomas              ,43030588,5
+26E0223D,Morales Gabriel Alejandro     ,30813830,3
+17E86200,Cardenes Federico Martin      ,42194460,1
 B9A05380,Gonzalez Castillo Nicolas Seba,34830080,4
 B9A053C0,Krayem Gerardo Gaston         ,26117026,4
 B98D00A0,Garrone Juan Marcos           ,44895543,1
