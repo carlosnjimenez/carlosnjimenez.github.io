@@ -1,3 +1,29 @@
+B9A04AC0,Filip Santiago                ,40972435,5
+17F536C0,Damiani Mauricio              ,63300017,4
+17F57800,Varettoni Alejandro           ,24893771,4
+B98D1F80,Naenen Cedric Michel          ,96018649,1
+B98D1FE0,Bergagna Dante Jose           ,34301853,1
+B98D1FA0,Franetovich Ivan              ,24945310,1
+B9A03A40,Grasso Oriana                 ,46751371,4
+B98D1D80,Agustina Dominguez            ,45014411,1
+B98D0140,Labate Facundo                ,48027763,1
+B98D1F20,Erazo Pablo Gerardo           ,48497614,1
+B98D1F60,Cardozo Antonela Eileen       ,4885171X,1
+B98D1F00,Carrizo Guido Samuel          ,48056999,1
+22F1F460,Tallone Agustin Mauricio      ,48677525,4
+22F1F360,Chiavon Brandon Ezequiel      ,48631599,4
+B98D1EC0,Facundo Contreras Agustin     ,47962991,1
+17F51C00,Rodriguez Amparo              ,48497078,1
+B98D1E80,Marcenaro Lucas               ,48680792,3
+B98D1EE0,Martinez Arianna              ,48648216,1
+B98D1940,Rentero Leandro               ,47944860,3
+B98D1EA0,Distel Justin                 ,48180624,3
+B98D0120,Baudino Ines                  ,47297072,1
+17E862E0,Asbir Lucia                   ,42252446,1
+17E84AA0,Hernandez Burgueño Maria Eugen,38322293,1
+B98CF4A0,Nieves Francisco              ,35117826,1
+FCDD08BA,Klaus Kutschenreiter          ,LG2T4XH6,4
+17E85BE0,Pietronave Agustina           ,42962885,1
 17E85060,Arrieta Valentina             ,46013417,1
 17E86800,Manfredi Gustavo              ,35967770,1
 53D6AE3C,Ana Alvarado                  ,23292717,5
