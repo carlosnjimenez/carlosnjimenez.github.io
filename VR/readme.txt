@@ -1,3 +1,5 @@
+B98D2000,Goldbaum Julieta              ,44851167,4
+B98D2060,Xi Ying                       ,63303968,1
 B9A04AC0,Filip Santiago                ,40972435,5
 17F536C0,Damiani Mauricio              ,63300017,4
 17F57800,Varettoni Alejandro           ,24893771,4
