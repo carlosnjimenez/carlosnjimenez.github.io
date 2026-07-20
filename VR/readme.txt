@@ -1,5 +1,19 @@
 B98D2000,Goldbaum Julieta              ,44851167,4
 B98D2060,Xi Ying                       ,63303968,1
+22F1F4C0,Perez Fabrizio                ,47434679,4
+17E84A60,Nuñez Lotocki Juan Ignacio    ,42952290,1
+17E853A0,Puz Balletini Octavio         ,44160079,1
+B9A04820,Varela Villaruel Santiago     ,45580639,5
+17E853C0,Arin, Micaela Alejandra       ,40611460,1
+B98D1500,Waldman Ignacio               ,26801161,1
+17F536A0,Rojas Estaban Jose            ,22078254,4
+A6A7D040,Rigo Righi Joaquin            ,15991523,4
+180643E0,Solari Agustin                ,42206830,1
+17E850E0,Fiorino Sandra                ,94585653,1
+17E87420,Francisco Telleriarte         ,00013721,1
+17E85160,Femia Giuliana                ,38620385,1
+17E864E0,Gonzalez Manrique Adriel      ,36981339,1
+17E85BE0,Pietronave Agustina           ,42962885,1
 B9A04AC0,Filip Santiago                ,40972435,5
 17F536C0,Damiani Mauricio              ,63300017,4
 17F57800,Varettoni Alejandro           ,24893771,4
