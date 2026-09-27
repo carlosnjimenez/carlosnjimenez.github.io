@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DEModulator</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:100%; height:100%; overflow:hidden; background:#000000; }
+  #app { position:fixed; inset:0; }
+  #status {
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    display:flex; align-items:center; justify-content:center;
+    color:#8fd3ff; font-family:monospace; font-size:14px; text-align:center;
+    padding:20px; z-index:20; background:rgba(0,0,0,0.6); pointer-events:none;
+  }
+  #status.hidden { display:none; }
+  .lil-gui { --width: 300px; }
+  .preview-box {
+    position:fixed; bottom:12px; left:12px; width:160px; height:120px;
+    border:1px solid #2a2a2a; z-index:10; background:#000; object-fit:cover;
+    border-radius:4px;
+  }
+  .preview-box.hidden-preview { opacity:0; pointer-events:none; width:2px; height:2px; }
+  #dropOverlay {
+    position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+    background:rgba(0,0,0,0.6); border:3px dashed #4fc3f7; box-sizing:border-box;
+    color:#4fc3f7; font-family:monospace; font-size:20px; z-index:30; pointer-events:none;
+    text-align:center; padding:20px;
+  }
+  #dropOverlay.active { display:flex; }
+  #exportModal {
+    position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+    background:rgba(0,0,0,0.8); z-index:40; padding:24px;
+  }
+  #exportModal.active { display:flex; }
+  #exportModal .box {
+    background:#111; border:1px solid #333; border-radius:8px; padding:16px;
+    width:min(640px, 92vw); max-height:80vh; display:flex; flex-direction:column; gap:10px;
+    font-family:monospace; color:#cfe9ff;
+  }
+  #exportModal textarea {
+    width:100%; height:320px; background:#000; color:#8fd3ff; font-family:monospace;
+    font-size:11px; border:1px solid #333; border-radius:4px; padding:8px; resize:vertical;
+  }
+  #exportModal .row { display:flex; gap:8px; justify-content:flex-end; }
+  #exportModal button {
+    background:#1a1a1a; color:#cfe9ff; border:1px solid #444; border-radius:4px;
+    padding:8px 14px; font-family:monospace; cursor:pointer;
+  }
+  #exportModal button:hover { background:#242424; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="status">Solicitando acceso a la cámara... (también podés arrastrar una imagen)</div>
+<div id="dropOverlay">Soltá una imagen aquí para procesarla</div>
+<video id="webcam" class="preview-box" autoplay playsinline muted></video>
+<img id="imagePreview" class="preview-box hidden-preview">
+<input type="file" id="fileInput" accept="image/*" style="display:none;">
+<div id="exportModal">
+  <div class="box">
+    <div>La descarga automática no está disponible acá. Copiá el texto de abajo (ya viene seleccionado, Ctrl+C / Cmd+C), pegalo en un editor de texto y guardalo como <b>modelo.obj</b>.</div>
+    <textarea id="exportTextarea" readonly></textarea>
+    <div class="row">
+      <button id="exportCopyBtn" type="button">Copiar</button>
+      <button id="exportCloseBtn" type="button">Cerrar</button>
+    </div>
+  </div>
+</div>
+<canvas id="sampleCanvas" style="display:none;"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/lines/LineSegmentsGeometry.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/lines/LineSegments2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/lines/LineGeometry.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/lines/LineMaterial.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/lines/Line2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19.2/dist/lil-gui.umd.min.js"></script>
+
+<script>
+(function () {
+  const statusEl = document.getElementById('status');
+  const video = document.getElementById('webcam');
+  const imagePreview = document.getElementById('imagePreview');
+  const dropOverlay = document.getElementById('dropOverlay');
+  const fileInput = document.getElementById('fileInput');
+  const exportModal = document.getElementById('exportModal');
+  const exportTextarea = document.getElementById('exportTextarea');
+  const exportCopyBtn = document.getElementById('exportCopyBtn');
+  const exportCloseBtn = document.getElementById('exportCloseBtn');
+  const sampleCanvas = document.getElementById('sampleCanvas');
+  const sampleCtx = sampleCanvas.getContext('2d', { willReadFrequently: true });
+  const appEl = document.getElementById('app');
+
+  let currentSource = 'webcam'; // 'webcam' | 'image'
+  let sourceImage = null;
+  let resetSmoothingOnce = false;
+  let cameraAspect = null;
+  let imageAspect = null;
+
+  function getActiveAspect() {
+    if (currentSource === 'image' && imageAspect) return imageAspect;
+    if (cameraAspect) return cameraAspect;
+    return 4 / 3;
+  }
+  let downloadsApi = null;
+  let downloadsReady = false;
+
+  (async function initDownloads() {
+    const start = Date.now();
+    const timeoutMs = 10000;
+    while (Date.now() - start < timeoutMs) {
+      if (window.claude && typeof window.claude.use === 'function') break;
+      await new Promise((res) => setTimeout(res, 250));
+    }
+    try {
+      if (window.claude && typeof window.claude.use === 'function') {
+        downloadsApi = await window.claude.use('downloads');
+      }
+    } catch (e) {
+      downloadsApi = null;
+    }
+    downloadsReady = true;
+  })();
+
+  // ---------- Parámetros ----------
+  const params = {
+    heightScale: 40,
+    density: 64,
+    rowSpacing: 1.0,
+    lineWidth: 1,
+    mirror: true,
+    autoRotate: false,
+    brightness: 1.0,
+    showPreview: true,
+    smoothing: 0.75
+  };
+
+  // ---------- Escena Three.js ----------
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x000000);
+  scene.fog = new THREE.FogExp2(0x000000, 0.006);
+
+  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 2000);
+  camera.position.set(0, 70, 140);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  appEl.appendChild(renderer.domElement);
+
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  controls.target.set(0, 0, 0);
+
+  const gridGroup = new THREE.Group();
+  scene.add(gridGroup);
+
+  // ---------- Tinte hipsométrico ----------
+  const colorStops = [
+    { t: 0.00, c: new THREE.Color(0x00102e) }, // azul profundo (bajo)
+    { t: 0.30, c: new THREE.Color(0x0a6e3a) }, // verde
+    { t: 0.55, c: new THREE.Color(0xcfc22a) }, // amarillo
+    { t: 0.80, c: new THREE.Color(0x8a4a26) }, // marrón/rojizo
+    { t: 1.00, c: new THREE.Color(0xffffff) }  // blanco (pico)
+  ];
+  const tmpColor = new THREE.Color();
+  function hypsometricColor(t, out) {
+    t = Math.min(1, Math.max(0, t));
+    for (let i = 0; i < colorStops.length - 1; i++) {
+      const a = colorStops[i], b = colorStops[i + 1];
+      if (t >= a.t && t <= b.t) {
+        const localT = (t - a.t) / (b.t - a.t || 1);
+        out.copy(a.c).lerp(b.c, localT);
+        return out;
+      }
+    }
+    out.copy(colorStops[colorStops.length - 1].c);
+    return out;
+  }
+
+  // ---------- Malla de líneas ----------
+  let cols, rows, lines = [], rowPositions = [], rowColors = [], baseX = [], baseZ = [], planeW = 100, planeD = 90;
+  let prevLum = [];
+
+  function buildGrid() {
+    gridGroup.clear();
+    lines.length = 0;
+    rowPositions.length = 0;
+    rowColors.length = 0;
+    const aspect = getActiveAspect(); // ancho / alto de la fuente
+    cols = Math.max(2, Math.round(params.density));
+    rows = Math.max(2, Math.round(cols / aspect));
+    planeD = planeW / aspect;
+    prevLum = [];
+    for (let r = 0; r < rows; r++) prevLum.push(new Float32Array(cols));
+
+    baseX = new Float32Array(cols);
+    for (let c = 0; c < cols; c++) baseX[c] = -planeW / 2 + (c / (cols - 1)) * planeW;
+
+    baseZ = new Float32Array(rows);
+    for (let r = 0; r < rows; r++) baseZ[r] = -planeD / 2 + (r / (rows - 1)) * planeD;
+
+    for (let r = 0; r < rows; r++) {
+      const positions = new Float32Array(cols * 3);
+      const colors = new Float32Array(cols * 3);
+      for (let c = 0; c < cols; c++) {
+        positions[c * 3] = baseX[c];
+        positions[c * 3 + 1] = 0;
+        positions[c * 3 + 2] = baseZ[r] * params.rowSpacing;
+        colors[c * 3] = 0; colors[c * 3 + 1] = 0.05; colors[c * 3 + 2] = 0.15;
+      }
+      const geometry = new THREE.LineGeometry();
+      geometry.setPositions(positions);
+      geometry.setColors(colors);
+      const material = new THREE.LineMaterial({
+        vertexColors: true,
+        linewidth: params.lineWidth,
+        resolution: new THREE.Vector2(window.innerWidth, window.innerHeight)
+      });
+      const line = new THREE.Line2(geometry, material);
+      line.computeLineDistances();
+      gridGroup.add(line);
+      lines.push(line);
+      rowPositions.push(positions);
+      rowColors.push(colors);
+    }
+
+    sampleCanvas.width = cols;
+    sampleCanvas.height = rows;
+  }
+
+  // ---------- Fuente de imagen (drag & drop / archivo) ----------
+  function updatePreviewVisibility() {
+    const show = params.showPreview;
+    video.classList.toggle('hidden-preview', !(show && currentSource === 'webcam'));
+    imagePreview.classList.toggle('hidden-preview', !(show && currentSource === 'image'));
+  }
+
+  function resetGridToBlack() {
+    for (let r = 0; r < lines.length; r++) {
+      const posArr = rowPositions[r];
+      const colArr = rowColors[r];
+      for (let c = 0; c < cols; c++) {
+        posArr[c * 3 + 1] = 0;
+        colArr[c * 3] = 0;
+        colArr[c * 3 + 1] = 0;
+        colArr[c * 3 + 2] = 0;
+      }
+      lines[r].geometry.setPositions(posArr);
+      lines[r].geometry.setColors(colArr);
+      if (prevLum[r]) prevLum[r].fill(0);
+    }
+  }
+
+  function loadImageFile(file) {
+    if (!file || !file.type.startsWith('image/')) return;
+    resetGridToBlack();
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      sourceImage = img;
+      currentSource = 'image';
+      imageAspect = img.naturalWidth / img.naturalHeight;
+      resetSmoothingOnce = true;
+      imagePreview.src = url;
+      video.pause();
+      statusEl.classList.add('hidden');
+      updatePreviewVisibility();
+      buildGrid();
+    };
+    img.onerror = () => {
+      statusEl.classList.remove('hidden');
+      statusEl.textContent = 'No se pudo cargar la imagen.';
+      URL.revokeObjectURL(url);
+    };
+    img.src = url;
+  }
+
+  function switchToWebcam() {
+    currentSource = 'webcam';
+    resetSmoothingOnce = true;
+    video.play().catch(() => {});
+    updatePreviewVisibility();
+    buildGrid();
+  }
+
+  let dragCounter = 0;
+  window.addEventListener('dragenter', (e) => {
+    e.preventDefault();
+    dragCounter++;
+    dropOverlay.classList.add('active');
+  });
+  window.addEventListener('dragover', (e) => e.preventDefault());
+  window.addEventListener('dragleave', (e) => {
+    e.preventDefault();
+    dragCounter--;
+    if (dragCounter <= 0) { dragCounter = 0; dropOverlay.classList.remove('active'); }
+  });
+  window.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dragCounter = 0;
+    dropOverlay.classList.remove('active');
+    const file = e.dataTransfer.files && e.dataTransfer.files[0];
+    if (file) loadImageFile(file);
+  });
+
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) loadImageFile(file);
+    fileInput.value = '';
+  });
+
+  // ---------- Webcam ----------
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false })
+    .then((stream) => {
+      video.srcObject = stream;
+      const playPromise = video.play();
+      if (playPromise && playPromise.catch) {
+        playPromise.catch((err) => {
+          statusEl.classList.remove('hidden');
+          statusEl.textContent = 'No se pudo iniciar el video: ' + err.message;
+        });
+      }
+      video.addEventListener('loadedmetadata', () => {
+        statusEl.classList.add('hidden');
+        updatePreviewVisibility();
+        cameraAspect = video.videoWidth / video.videoHeight;
+        if (currentSource === 'webcam') buildGrid();
+      }, { once: true });
+    })
+    .catch((err) => {
+      statusEl.classList.remove('hidden');
+      statusEl.textContent = 'No se pudo acceder a la cámara: ' + err.name + ' - ' + err.message +
+        '\n(revisá los permisos del navegador / que el sitio use HTTPS)';
+    });
+
+  // ---------- Actualización desde video ----------
+  function updateFromVideo() {
+    let srcEl = null;
+    const useImage = currentSource === 'image' && sourceImage && sourceImage.complete && sourceImage.naturalWidth;
+
+    if (useImage) {
+      srcEl = sourceImage;
+    } else if (video.videoWidth && video.videoHeight && video.readyState >= 2) {
+      srcEl = video;
+    } else {
+      return;
+    }
+
+    sampleCtx.save();
+    sampleCtx.globalCompositeOperation = 'source-over';
+    sampleCtx.fillStyle = '#000000';
+    sampleCtx.fillRect(0, 0, cols, rows);
+    if (params.mirror && srcEl === video) {
+      sampleCtx.translate(cols, 0);
+      sampleCtx.scale(-1, 1);
+    }
+    sampleCtx.drawImage(srcEl, 0, 0, cols, rows);
+    sampleCtx.restore();
+
+    const data = sampleCtx.getImageData(0, 0, cols, rows).data;
+
+    for (let r = 0; r < rows; r++) {
+      const line = lines[r];
+      const posArr = rowPositions[r];
+      const colArr = rowColors[r];
+      const zBase = baseZ[r] * params.rowSpacing;
+      const rowPrev = prevLum[r];
+
+      for (let c = 0; c < cols; c++) {
+        const idx = (r * cols + c) * 4;
+        const R = data[idx], G = data[idx + 1], B = data[idx + 2];
+        let rawLum = (0.299 * R + 0.587 * G + 0.114 * B) / 255;
+        rawLum = Math.min(1, rawLum * params.brightness);
+
+        const lum = resetSmoothingOnce ? rawLum : rowPrev[c] + (rawLum - rowPrev[c]) * (1 - params.smoothing);
+        rowPrev[c] = lum;
+
+        const y = lum * params.heightScale;
+
+        posArr[c * 3] = baseX[c];
+        posArr[c * 3 + 1] = y;
+        posArr[c * 3 + 2] = zBase;
+
+        hypsometricColor(lum, tmpColor);
+        colArr[c * 3] = tmpColor.r;
+        colArr[c * 3 + 1] = tmpColor.g;
+        colArr[c * 3 + 2] = tmpColor.b;
+      }
+      line.geometry.setPositions(posArr);
+      line.geometry.setColors(colArr);
+    }
+    resetSmoothingOnce = false;
+  }
+
+  // ---------- Exportar modelo 3D (sólido cerrado, sin huecos) ----------
+  function buildClosedTriangles() {
+    // Base plana debajo del punto más bajo posible, para formar un bloque sólido watertight
+    const baseY = -Math.max(4, params.heightScale * 0.06);
+
+    function topPoint(r, c) {
+      const arr = rowPositions[r];
+      return [arr[c * 3], arr[c * 3 + 1], arr[c * 3 + 2]];
+    }
+    function botPoint(r, c) {
+      const arr = rowPositions[r];
+      return [arr[c * 3], baseY, arr[c * 3 + 2]];
+    }
+
+    const tris = [];
+
+    // Superficie superior (terreno)
+    for (let r = 0; r < rows - 1; r++) {
+      for (let c = 0; c < cols - 1; c++) {
+        const a = topPoint(r, c), b = topPoint(r, c + 1), d = topPoint(r + 1, c + 1), e = topPoint(r + 1, c);
+        tris.push([a, b, d]); tris.push([a, d, e]);
+      }
+    }
+    // Base inferior (plana), winding invertido para que la normal apunte hacia abajo
+    for (let r = 0; r < rows - 1; r++) {
+      for (let c = 0; c < cols - 1; c++) {
+        const a = botPoint(r, c), b = botPoint(r, c + 1), d = botPoint(r + 1, c + 1), e = botPoint(r + 1, c);
+        tris.push([a, d, b]); tris.push([a, e, d]);
+      }
+    }
+    // Pared borde superior (r = 0)
+    for (let c = 0; c < cols - 1; c++) {
+      const t0 = topPoint(0, c), t1 = topPoint(0, c + 1), b0 = botPoint(0, c), b1 = botPoint(0, c + 1);
+      tris.push([t0, t1, b1]); tris.push([t0, b1, b0]);
+    }
+    // Pared borde inferior (r = rows-1)
+    for (let c = 0; c < cols - 1; c++) {
+      const r = rows - 1;
+      const t0 = topPoint(r, c), t1 = topPoint(r, c + 1), b0 = botPoint(r, c), b1 = botPoint(r, c + 1);
+      tris.push([t1, t0, b0]); tris.push([t1, b0, b1]);
+    }
+    // Pared borde izquierdo (c = 0)
+    for (let r = 0; r < rows - 1; r++) {
+      const t0 = topPoint(r, 0), t1 = topPoint(r + 1, 0), b0 = botPoint(r, 0), b1 = botPoint(r + 1, 0);
+      tris.push([t1, t0, b0]); tris.push([t1, b0, b1]);
+    }
+    // Pared borde derecho (c = cols-1)
+    for (let r = 0; r < rows - 1; r++) {
+      const c = cols - 1;
+      const t0 = topPoint(r, c), t1 = topPoint(r + 1, c), b0 = botPoint(r, c), b1 = botPoint(r + 1, c);
+      tris.push([t0, t1, b1]); tris.push([t0, b1, b0]);
+    }
+
+    return tris;
+  }
+
+  function buildOBJString() {
+    const tris = buildClosedTriangles();
+    const out = [
+      '# Modelo sólido cerrado exportado desde Rutt-Etra Webcam 3D',
+      '# triángulos: ' + tris.length
+    ];
+    const faceLines = [];
+    let idx = 1;
+    for (const tri of tris) {
+      for (const p of tri) {
+        out.push('v ' + p[0].toFixed(4) + ' ' + p[1].toFixed(4) + ' ' + p[2].toFixed(4));
+      }
+      faceLines.push('f ' + idx + ' ' + (idx + 1) + ' ' + (idx + 2));
+      idx += 3;
+    }
+    return out.concat(faceLines).join('\n');
+  }
+
+  function buildSTLString() {
+    const tris = buildClosedTriangles();
+    const out = ['solid ruttetra'];
+    const p1 = new THREE.Vector3(), p2 = new THREE.Vector3(), p3 = new THREE.Vector3();
+    const e1 = new THREE.Vector3(), e2 = new THREE.Vector3(), n = new THREE.Vector3();
+    for (const [a, b, c] of tris) {
+      p1.set(a[0], a[1], a[2]);
+      p2.set(b[0], b[1], b[2]);
+      p3.set(c[0], c[1], c[2]);
+      e1.subVectors(p2, p1);
+      e2.subVectors(p3, p1);
+      n.crossVectors(e1, e2).normalize();
+      if (!isFinite(n.x)) n.set(0, 0, 0);
+      out.push('facet normal ' + n.x.toFixed(5) + ' ' + n.y.toFixed(5) + ' ' + n.z.toFixed(5));
+      out.push('  outer loop');
+      out.push('    vertex ' + a[0].toFixed(4) + ' ' + a[1].toFixed(4) + ' ' + a[2].toFixed(4));
+      out.push('    vertex ' + b[0].toFixed(4) + ' ' + b[1].toFixed(4) + ' ' + b[2].toFixed(4));
+      out.push('    vertex ' + c[0].toFixed(4) + ' ' + c[1].toFixed(4) + ' ' + c[2].toFixed(4));
+      out.push('  endloop');
+      out.push('endfacet');
+    }
+    out.push('endsolid ruttetra');
+    return out.join('\n');
+  }
+
+  function showTempStatus(msg) {
+    statusEl.classList.remove('hidden');
+    statusEl.textContent = msg;
+    clearTimeout(showTempStatus._t);
+    showTempStatus._t = setTimeout(() => statusEl.classList.add('hidden'), 3500);
+  }
+
+  function openExportModal(text, ext) {
+    exportModal.querySelector('.box > div').textContent =
+      'La descarga automática no está disponible acá. Copiá el texto de abajo (ya viene seleccionado, Ctrl+C / Cmd+C), ' +
+      'pegalo en un editor de texto y guardalo como modelo.' + ext + '.';
+    exportTextarea.value = text;
+    exportModal.classList.add('active');
+    exportTextarea.focus();
+    exportTextarea.select();
+  }
+
+  exportCopyBtn.addEventListener('click', async () => {
+    exportTextarea.focus();
+    exportTextarea.select();
+    let copied = false;
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(exportTextarea.value);
+        copied = true;
+      }
+    } catch (e) { /* clipboard API bloqueada, probamos el método clásico */ }
+    if (!copied) {
+      try { copied = document.execCommand('copy'); } catch (e) { copied = false; }
+    }
+    exportCopyBtn.textContent = copied ? '¡Copiado!' : 'Seleccioná y copiá manualmente';
+    setTimeout(() => { exportCopyBtn.textContent = 'Copiar'; }, 2000);
+  });
+
+  exportCloseBtn.addEventListener('click', () => exportModal.classList.remove('active'));
+
+  async function exportModel(format) {
+    const ext = format === 'stl' ? 'stl' : 'obj';
+    const text = format === 'stl' ? buildSTLString() : buildOBJString();
+
+    if (downloadsReady && downloadsApi) {
+      try {
+        await downloadsApi.save({ filename: 'rutt-etra-model.' + ext + '.txt', data: text });
+        showTempStatus('Modelo exportado. Renombrá el archivo quitando ".txt" (dejando ".' + ext + '") para abrirlo en Blender, MeshLab, tu slicer de impresión 3D, etc.');
+        return;
+      } catch (err) {
+        // si falla (declined, rate_limited, etc.) caemos al modal de copiado manual
+      }
+    }
+    openExportModal(text, ext);
+  }
+
+  // ---------- GUI ----------
+  const gui = new lil.GUI({ title: 'Rutt-Etra Controls' });
+  gui.domElement.style.position = 'fixed';
+  gui.domElement.style.top = '12px';
+  gui.domElement.style.right = '12px';
+  gui.domElement.style.zIndex = '10';
+
+  gui.add(params, 'heightScale', 0, 150, 1).name('Escala de altura');
+  gui.add(params, 'density', 10, 280, 1).name('Densidad de red').onFinishChange(buildGrid);
+  gui.add(params, 'rowSpacing', 0.2, 3, 0.05).name('Separación de filas').onChange(buildGrid);
+  gui.add(params, 'lineWidth', 1, 10, 0.5).name('Grosor de línea (px)').onChange(() => {
+    lines.forEach(l => { l.material.linewidth = params.lineWidth; });
+  });
+  gui.add(params, 'brightness', 0.2, 2.5, 0.05).name('Brillo/Contraste');
+  gui.add(params, 'smoothing', 0, 0.95, 0.01).name('Estabilización (suavizado)');
+  gui.add(params, 'mirror').name('Espejo').onChange(v => {
+    video.style.transform = v ? 'scaleX(-1)' : 'none';
+  });
+  gui.add(params, 'autoRotate').name('Auto-rotar cámara').onChange(v => { controls.autoRotate = v; });
+  gui.add(params, 'showPreview').name('Mostrar preview').onChange(updatePreviewVisibility);
+  video.style.transform = params.mirror ? 'scaleX(-1)' : 'none';
+
+  const sourceFolder = gui.addFolder('Fuente');
+  sourceFolder.add({ loadImage: () => fileInput.click() }, 'loadImage').name('Cargar imagen...');
+  sourceFolder.add({ useWebcam: switchToWebcam }, 'useWebcam').name('Volver a cámara');
+  sourceFolder.open();
+
+  const exportFolder = gui.addFolder('Exportar');
+  exportFolder.add({ fn: () => exportModel('obj') }, 'fn').name('Exportar modelo 3D (.obj)');
+  exportFolder.add({ fn: () => exportModel('stl') }, 'fn').name('Exportar modelo 3D (.stl)');
+  exportFolder.open();
+
+  // ---------- Resize ----------
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    lines.forEach(l => l.material.resolution.set(window.innerWidth, window.innerHeight));
+  });
+
+  // ---------- Loop ----------
+  buildGrid();
+  function animate() {
+    requestAnimationFrame(animate);
+    updateFromVideo();
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+})();
+</script>
+</body>
+</html>
