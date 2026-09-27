@@ -375,7 +375,7 @@
       params.cameraId = activeId || Object.values(opts)[0];
 
       if (cameraController) cameraController.destroy();
-      cameraController = camerasFolder.add(params, 'cameraId', opts).name('Cámara')
+      cameraController = camerasFolder.add(params, 'cameraId', opts).name('Seleccionar')
         .onChange((id) => startCameraStream(id));
     } catch (e) { /* enumerate puede fallar en algunos navegadores sin permiso; se ignora */ }
   }
