@@ -133,7 +133,7 @@
 
   // ---------- Parámetros ----------
   const params = {
-    heightScale: 40,
+    heightScale: 0,
     density: 64,
     rowSpacing: 1.0,
     lineWidth: 1,
@@ -150,8 +150,8 @@
   scene.background = new THREE.Color(0x000000);
   scene.fog = new THREE.FogExp2(0x000000, 0.006);
 
-  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 2000);
-  camera.position.set(0, 70, 140);
+  const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 2000);
+  camera.position.set(0, 70, 0);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
