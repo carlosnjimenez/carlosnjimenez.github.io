@@ -367,7 +367,7 @@
       if (!cams.length) return;
 
       const opts = {};
-      cams.forEach((d, i) => { opts[d.label || ('Seleccionar ' + (i + 1))] = d.deviceId; });
+      cams.forEach((d, i) => { opts[d.label || ('Cámara ' + (i + 1))] = d.deviceId; });
 
       const activeId = currentStream && currentStream.getVideoTracks()[0]
         ? currentStream.getVideoTracks()[0].getSettings().deviceId
