@@ -659,7 +659,7 @@
   exportFolder.add({ fn: () => exportModel('stl') }, 'fn').name('Exportar modelo 3D (.stl)');
   
   exportFolder.open();
-
+  gui.close();
   // ---------- Resize ----------
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
