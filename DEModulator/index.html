@@ -99,6 +99,8 @@
   let resetSmoothingOnce = false;
   let cameraAspect = null;
   let imageAspect = null;
+  let cameraController = null;
+  let sourceFolder = null;
 
   function getActiveAspect() {
     if (currentSource === 'image' && imageAspect) return imageAspect;
@@ -135,7 +137,8 @@
     autoRotate: false,
     brightness: 1.0,
     showPreview: true,
-    smoothing: 0.75
+    smoothing: 0.75,
+    cameraId: ''
   };
 
   // ---------- Escena Three.js ----------
@@ -256,17 +259,15 @@
     }
   }
 
-  function loadImageFile(file) {
-    if (!file || !file.type.startsWith('image/')) return;
+  function loadImageFromSrc(src) {
     resetGridToBlack();
-    const url = URL.createObjectURL(file);
     const img = new Image();
     img.onload = () => {
       sourceImage = img;
       currentSource = 'image';
       imageAspect = img.naturalWidth / img.naturalHeight;
       resetSmoothingOnce = true;
-      imagePreview.src = url;
+      imagePreview.src = src;
       video.pause();
       statusEl.classList.add('hidden');
       updatePreviewVisibility();
@@ -275,10 +276,34 @@
     img.onerror = () => {
       statusEl.classList.remove('hidden');
       statusEl.textContent = 'No se pudo cargar la imagen.';
-      URL.revokeObjectURL(url);
     };
-    img.src = url;
+    img.src = src;
   }
+
+  function loadImageFile(file) {
+    if (!file || !file.type.startsWith('image/')) return;
+    loadImageFromSrc(URL.createObjectURL(file));
+  }
+
+  // ---------- Puente con Kodular ----------
+  // Vía A: Kodular llama window.loadImageFromBase64('data:image/jpeg;base64,...') con EvaluateJavaScript.
+  window.loadImageFromBase64 = loadImageFromSrc;
+
+  // Vía B (más simple desde bloques): Kodular solo hace
+  //   set WebViewer1.WebViewString to "data:image/jpeg;base64,...."
+  // y esta página lo detecta sola por polling, sin necesidad de EvaluateJavaScript.
+  let lastKodularString = '';
+  setInterval(() => {
+    try {
+      if (window.Kodular && typeof window.Kodular.getWebViewString === 'function') {
+        const s = window.Kodular.getWebViewString();
+        if (s && s !== lastKodularString && s.indexOf('data:image') === 0) {
+          lastKodularString = s;
+          loadImageFromSrc(s);
+        }
+      }
+    } catch (e) { /* no-op fuera de Kodular */ }
+  }, 500);
 
   function switchToWebcam() {
     currentSource = 'webcam';
@@ -314,9 +339,25 @@
     fileInput.value = '';
   });
 
-  // ---------- Webcam ----------
-  navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false })
-    .then((stream) => {
+  // ---------- Webcam (con selección de cámara) ----------
+  let currentStream = null;
+
+  video.addEventListener('loadedmetadata', () => {
+    statusEl.classList.add('hidden');
+    updatePreviewVisibility();
+    cameraAspect = video.videoWidth / video.videoHeight;
+    if (currentSource === 'webcam') buildGrid();
+  });
+
+  async function startCameraStream(deviceId) {
+    const constraints = {
+      audio: false,
+      video: deviceId ? { deviceId: { exact: deviceId } } : { facingMode: 'user' }
+    };
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      if (currentStream) currentStream.getTracks().forEach((t) => t.stop());
+      currentStream = stream;
       video.srcObject = stream;
       const playPromise = video.play();
       if (playPromise && playPromise.catch) {
@@ -325,18 +366,39 @@
           statusEl.textContent = 'No se pudo iniciar el video: ' + err.message;
         });
       }
-      video.addEventListener('loadedmetadata', () => {
-        statusEl.classList.add('hidden');
-        updatePreviewVisibility();
-        cameraAspect = video.videoWidth / video.videoHeight;
-        if (currentSource === 'webcam') buildGrid();
-      }, { once: true });
-    })
-    .catch((err) => {
+      statusEl.classList.add('hidden');
+      refreshCameraList();
+    } catch (err) {
       statusEl.classList.remove('hidden');
       statusEl.textContent = 'No se pudo acceder a la cámara: ' + err.name + ' - ' + err.message +
         '\n(revisá los permisos del navegador / que el sitio use HTTPS)';
-    });
+    }
+  }
+
+  async function refreshCameraList() {
+    if (!navigator.mediaDevices.enumerateDevices) return;
+    try {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const cams = devices.filter((d) => d.kind === 'videoinput');
+      if (!cams.length) return;
+
+      const opts = {};
+      cams.forEach((d, i) => { opts[d.label || ('Cámara ' + (i + 1))] = d.deviceId; });
+
+      const activeId = currentStream && currentStream.getVideoTracks()[0]
+        ? currentStream.getVideoTracks()[0].getSettings().deviceId
+        : '';
+      params.cameraId = activeId || Object.values(opts)[0];
+
+      if (cameraController) cameraController.destroy();
+      cameraController = sourceFolder.add(params, 'cameraId', opts).name('Cámara')
+        .onChange((id) => startCameraStream(id));
+    } catch (e) { /* enumerate puede fallar en algunos navegadores sin permiso; se ignora */ }
+  }
+
+  navigator.mediaDevices.addEventListener && navigator.mediaDevices.addEventListener('devicechange', refreshCameraList);
+
+  startCameraStream();
 
   // ---------- Actualización desde video ----------
   function updateFromVideo() {
@@ -570,7 +632,7 @@
   gui.add(params, 'showPreview').name('Mostrar preview').onChange(updatePreviewVisibility);
   video.style.transform = params.mirror ? 'scaleX(-1)' : 'none';
 
-  const sourceFolder = gui.addFolder('Fuente');
+  sourceFolder = gui.addFolder('Fuente');
   sourceFolder.add({ loadImage: () => fileInput.click() }, 'loadImage').name('Cargar imagen...');
   sourceFolder.add({ useWebcam: switchToWebcam }, 'useWebcam').name('Volver a cámara');
   sourceFolder.open();
