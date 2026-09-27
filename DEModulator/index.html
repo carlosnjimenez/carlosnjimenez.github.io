@@ -60,8 +60,9 @@
 <input type="file" id="fileInput" accept="image/*" style="display:none;">
 <div id="exportModal">
   <div class="box">
-    <div>La descarga automática no está disponible acá. Copiá el texto de abajo (ya viene seleccionado, Ctrl+C / Cmd+C), pegalo en un editor de texto y guardalo como <b>modelo.obj</b>.</div>
+    <div id="exportModalMsg">La descarga automática no está disponible acá. Copiá el texto de abajo (ya viene seleccionado, Ctrl+C / Cmd+C), pegalo en un editor de texto y guardalo como <b>modelo.obj</b>.</div>
     <textarea id="exportTextarea" readonly></textarea>
+    <img id="exportImagePreview" style="display:none; max-width:100%; max-height:60vh; border:1px solid #333; border-radius:4px; align-self:center;">
     <div class="row">
       <button id="exportCopyBtn" type="button">Copiar</button>
       <button id="exportCloseBtn" type="button">Cerrar</button>
@@ -87,7 +88,9 @@
   const dropOverlay = document.getElementById('dropOverlay');
   const fileInput = document.getElementById('fileInput');
   const exportModal = document.getElementById('exportModal');
+  const exportModalMsg = document.getElementById('exportModalMsg');
   const exportTextarea = document.getElementById('exportTextarea');
+  const exportImagePreview = document.getElementById('exportImagePreview');
   const exportCopyBtn = document.getElementById('exportCopyBtn');
   const exportCloseBtn = document.getElementById('exportCloseBtn');
   const sampleCanvas = document.getElementById('sampleCanvas');
@@ -101,6 +104,7 @@
   let imageAspect = null;
   let cameraController = null;
   let sourceFolder = null;
+  let camerasFolder = null;
 
   function getActiveAspect() {
     if (currentSource === 'image' && imageAspect) return imageAspect;
@@ -149,7 +153,7 @@
   const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 2000);
   camera.position.set(0, 70, 140);
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(window.innerWidth, window.innerHeight);
   appEl.appendChild(renderer.domElement);
@@ -285,26 +289,6 @@
     loadImageFromSrc(URL.createObjectURL(file));
   }
 
-  // ---------- Puente con Kodular ----------
-  // Vía A: Kodular llama window.loadImageFromBase64('data:image/jpeg;base64,...') con EvaluateJavaScript.
-  window.loadImageFromBase64 = loadImageFromSrc;
-
-  // Vía B (más simple desde bloques): Kodular solo hace
-  //   set WebViewer1.WebViewString to "data:image/jpeg;base64,...."
-  // y esta página lo detecta sola por polling, sin necesidad de EvaluateJavaScript.
-  let lastKodularString = '';
-  setInterval(() => {
-    try {
-      if (window.Kodular && typeof window.Kodular.getWebViewString === 'function') {
-        const s = window.Kodular.getWebViewString();
-        if (s && s !== lastKodularString && s.indexOf('data:image') === 0) {
-          lastKodularString = s;
-          loadImageFromSrc(s);
-        }
-      }
-    } catch (e) { /* no-op fuera de Kodular */ }
-  }, 500);
-
   function switchToWebcam() {
     currentSource = 'webcam';
     resetSmoothingOnce = true;
@@ -391,7 +375,7 @@
       params.cameraId = activeId || Object.values(opts)[0];
 
       if (cameraController) cameraController.destroy();
-      cameraController = sourceFolder.add(params, 'cameraId', opts).name('Cámara')
+      cameraController = camerasFolder.add(params, 'cameraId', opts).name('Cámara')
         .onChange((id) => startCameraStream(id));
     } catch (e) { /* enumerate puede fallar en algunos navegadores sin permiso; se ignora */ }
   }
@@ -565,14 +549,43 @@
     showTempStatus._t = setTimeout(() => statusEl.classList.add('hidden'), 3500);
   }
 
-  function openExportModal(text, ext) {
-    exportModal.querySelector('.box > div').textContent =
-      'La descarga automática no está disponible acá. Copiá el texto de abajo (ya viene seleccionado, Ctrl+C / Cmd+C), ' +
-      'pegalo en un editor de texto y guardalo como modelo.' + ext + '.';
-    exportTextarea.value = text;
+  function openExportModal(content, ext, type) {
+    if (type === 'image') {
+      exportModalMsg.textContent = 'La descarga automática no está disponible acá. Mantené presionado (o click derecho) sobre la imagen y elegí "Guardar imagen como..." (' + ext + ').';
+      exportImagePreview.src = content;
+      exportImagePreview.style.display = 'block';
+      exportTextarea.style.display = 'none';
+      exportCopyBtn.style.display = 'none';
+    } else {
+      exportModalMsg.textContent = 'La descarga automática no está disponible acá. Copiá el texto de abajo (ya viene seleccionado, Ctrl+C / Cmd+C), ' +
+        'pegalo en un editor de texto y guardalo como modelo.' + ext + '.';
+      exportTextarea.value = content;
+      exportTextarea.style.display = 'block';
+      exportImagePreview.style.display = 'none';
+      exportCopyBtn.style.display = 'inline-block';
+      exportTextarea.focus();
+      exportTextarea.select();
+    }
     exportModal.classList.add('active');
-    exportTextarea.focus();
-    exportTextarea.select();
+  }
+
+  function captureRenderPNG() {
+    renderer.render(scene, camera);
+    return renderer.domElement.toDataURL('image/png');
+  }
+
+  async function exportPNG() {
+    const dataUrl = captureRenderPNG();
+    if (downloadsReady && downloadsApi) {
+      try {
+        await downloadsApi.save({ filename: 'rutt-etra-captura.png', data: dataUrl });
+        showTempStatus('Imagen PNG exportada.');
+        return;
+      } catch (err) {
+        // caemos al modal con la imagen para guardar manualmente
+      }
+    }
+    openExportModal(dataUrl, 'png', 'image');
   }
 
   exportCopyBtn.addEventListener('click', async () => {
@@ -607,11 +620,11 @@
         // si falla (declined, rate_limited, etc.) caemos al modal de copiado manual
       }
     }
-    openExportModal(text, ext);
+    openExportModal(text, ext, 'text');
   }
 
   // ---------- GUI ----------
-  const gui = new lil.GUI({ title: 'Rutt-Etra Controls' });
+  const gui = new lil.GUI({ title: 'Controles' });
   gui.domElement.style.position = 'fixed';
   gui.domElement.style.top = '12px';
   gui.domElement.style.right = '12px';
@@ -637,9 +650,14 @@
   sourceFolder.add({ useWebcam: switchToWebcam }, 'useWebcam').name('Volver a cámara');
   sourceFolder.open();
 
+  camerasFolder = gui.addFolder('Cámaras');
+  camerasFolder.open();
+
   const exportFolder = gui.addFolder('Exportar');
+  exportFolder.add({ fn: exportPNG }, 'fn').name('Exportar imagen (.png)');
   exportFolder.add({ fn: () => exportModel('obj') }, 'fn').name('Exportar modelo 3D (.obj)');
   exportFolder.add({ fn: () => exportModel('stl') }, 'fn').name('Exportar modelo 3D (.stl)');
+  
   exportFolder.open();
 
   // ---------- Resize ----------
