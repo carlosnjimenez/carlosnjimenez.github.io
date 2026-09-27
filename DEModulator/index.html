@@ -333,14 +333,21 @@
     if (currentSource === 'webcam') buildGrid();
   });
 
-  async function startCameraStream(deviceId) {
+ async function startCameraStream(deviceId) {
     const constraints = {
       audio: false,
       video: deviceId ? { deviceId: { exact: deviceId } } : { facingMode: 'user' }
     };
     try {
+      if (currentStream) {
+        // en la mayoría de los celulares solo puede haber un stream de cámara activo a la vez:
+        // hay que soltar el actual antes de pedir el siguiente, o falla en silencio.
+        currentStream.getTracks().forEach((t) => t.stop());
+        currentStream = null;
+        video.srcObject = null;
+        await new Promise((res) => setTimeout(res, 150)); // margen para que el hardware libere la cámara
+      }
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
-      if (currentStream) currentStream.getTracks().forEach((t) => t.stop());
       currentStream = stream;
       video.srcObject = stream;
       const playPromise = video.play();
