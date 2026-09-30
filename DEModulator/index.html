@@ -49,6 +49,11 @@
     padding:8px 14px; font-family:monospace; cursor:pointer;
   }
   #exportModal button:hover { background:#242424; }
+  #credit {
+  position:fixed; bottom:8px; left:50%; transform:translateX(-50%);
+  color:#4a4a4a; font-family:monospace; font-size:11px;
+  z-index:15; pointer-events:none; letter-spacing:0.5px;
+}
 </style>
 </head>
 <body>
@@ -70,7 +75,7 @@
   </div>
 </div>
 <canvas id="sampleCanvas" style="display:none;"></canvas>
-
+<div id="credit">CARLOS N. JIMÉNEZ </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/lines/LineSegmentsGeometry.js"></script>
